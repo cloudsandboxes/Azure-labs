@@ -2,6 +2,8 @@
 #Their RDP sessions keeps failing when connecting. 
 #Do you know why, and how to solve this? 
 
+#The Azure costs of this lab is about 0.01 dollar per hour
+
 trigger: none
 
 pool:
