@@ -21,4 +21,5 @@ Scenario's
 ---
 1) A developer created a new VM from script but is not able to access the VM. Could you help to restore access? (GetAccessToVm.yml)
 2) A developer had stored a secret in a blob file, only the file got overwritten. Could you help to retrieve the secret value? (RestoreBlobSecret.yml) 
-3) A developer created a new VM from script, only they could not access the internet from this vm. Could you help them get full functionality?  (EnableBrowsingSimple.yml) or (EnableBrowsingAdvanced.yml)  
+3) A development team does not want to shut-down their dev-vm during off-hours, because after a reboot they could not access the internet from this vm. Could you help them to save money?  (EnableBrowsingSimple.yml) 
+4) A developer can not access the internet from a vm, could you help them restore functionality? (on it's way)  
