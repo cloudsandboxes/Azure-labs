@@ -2,6 +2,8 @@
 #Their RDP sessions keeps failing when connecting. 
 #Do you know why, and how to solve this? 
 
+#username and password are cloudsandboxes/fjhiwe3434jfkdJJ
+
 #The Azure costs of this lab is about 0.01 dollar per hour
 
 trigger: none
@@ -22,4 +24,4 @@ steps:
           Write-Host "##[section]Create VM"
           az group create --name "getaccess" --location "east-us" 
           az network nsg create --name "a" -g "getaccess"
-          az vm create --name "getaccess" --resource-group "getaccess" --image "Win2019Datacenter" --admin-username "iamadminmaster" --admin-password "fjhiwe3434jfkdJJ" --size "Standard_B1ls" --nsg '""'
+          az vm create --name "getaccess" --resource-group "getaccess" --image "Win2019Datacenter" --admin-username "cloudsandboxes" --admin-password "fjhiwe3434jfkdJJ" --size "Standard_B1ls" --nsg '""'
