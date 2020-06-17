@@ -1,6 +1,6 @@
 #A development team does not want to have their dev-VM in the shutdown pool because after a restart they are not able to access the internet anymore. 
-#Only when they create a new VM they receive a status code of HTTP/2 200 when calling https://cloudsandboxes.nl
-#But after a reboot their code ends up in a loop and their app stops working.
+#Only with a fresh new VM they could browse the internet, and get for example the status code HTTP/2 200 when calling https://cloudsandboxes.nl
+#But after a reboot of the VM their code ends up in a loop and their app stops working.
 #The code they try to execute is: curl -Is https://cloudsandboxes.nl | head -n 1  
 #Could you solve their issue, so their dev vm could be added to the shutdown pool to save costs during off-hours? 
 
