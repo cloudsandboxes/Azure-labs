@@ -1,5 +1,5 @@
 # Summary Azure-labs
-> This repo contains a library of Azure labs to try-out your Azure skills.
+> This repo contains a library of Azure labs to prove your practical Azure skills.
 >
 > In the field of Azure management, it is difficult to stay up to date with practical knowledge of all the new and old features. Verifying your theoretical knowledge can be done easily by taking a Microsoft Exam, but learning how to solve problems on the job becomes more complicated. 
 Therefore we have setup a git-repo with real life examples of Azure issues which need to be solved. We have deduced the issue to a reproducible problem on which you could experiment your skills to solve it. 
@@ -7,9 +7,9 @@ Only keep in mind to remove the experiments afterwards to not get billed excessi
 >
 
 # Instructions
-> Start by cloning the repo
+> Start by cloning the git repo in your Azure DevOps environment.
 >
-> Update the AzureConnectionName to yours 
+> Update the AzureConnectionName to yours, (create a service connection between Azure and DevOps with access rights to an Azure subscription) 
 >
 > Deploy the YML file via Azure DevOps to your Azure environment. 
 >
