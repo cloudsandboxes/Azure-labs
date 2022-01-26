@@ -1,3 +1,4 @@
+#!/bin/sh
 sudo iptables -D OUTPUT -p tcp --dport 80 -j ACCEPT 
 sudo iptables -D OUTPUT -p tcp --dport 443 -j ACCEPT 
 cd /home
@@ -13,4 +14,3 @@ sudo chmod 644 /etc/systemd/system/security.service
 sudo systemctl enable security.service 
 systemctl daemon-reload 
 sudo systemctl restart security.service"
-     
