@@ -25,7 +25,11 @@ Scenario's to solve
 
 2) A developer had stored a secret in a blob file, only the secret disappeard from the file. Could you help to retrieve the secret value? (RestoreBlobSecret.yml) 
 3) A development team does not want to shut-down their dev-vm during off-hours, because after a reboot they could not access the internet from this vm. Could you help them to save money?  (EnableBrowsingSimple.yml) 
-4) A developer can not access the internet from a vm, could you help them restore functionality? (on it's way)  
+[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FUnable-to-reboot-vm.json)
+
+
+
+5) A developer can not access the internet from a vm, could you help them restore functionality? (on it's way)  
 
 
 
