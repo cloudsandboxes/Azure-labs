@@ -21,8 +21,7 @@ Only keep in mind to remove the experiments afterwards to not get billed excessi
 Scenario's to solve 
 ---
 1) A developer created a new VM from script but they are not able to access the VM via RDP. Could you help to restore access? (GetAccessToVm.yml)
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fgithub.com%2Fcloudsandboxes%2FAzure-labs%2Fblob%2Fmaster%2FEnableBrowsingSimple.yml)
-
+[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FEnableBrowsingSimple.yml)
 
 2) A developer had stored a secret in a blob file, only the secret disappeard from the file. Could you help to retrieve the secret value? (RestoreBlobSecret.yml) 
 3) A development team does not want to shut-down their dev-vm during off-hours, because after a reboot they could not access the internet from this vm. Could you help them to save money?  (EnableBrowsingSimple.yml) 
