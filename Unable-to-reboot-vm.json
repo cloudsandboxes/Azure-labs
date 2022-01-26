@@ -8,7 +8,7 @@
         "description": "Username for the Virtual Machine."
       }
     },
-    "adminPassword": {
+    "adminPasswordOrKey": {
       "type": "secureString",
       "metadata": {
         "description": "Password for the Virtual Machine."
@@ -37,7 +37,7 @@
         "publicKeys": [
           {
             "path": "[format('/home/{0}/.ssh/authorized_keys', parameters('adminUsername'))]",
-            "keyData": "[parameters('adminPassword')]"
+            "keyData": "[parameters('adminPasswordOrKey')]"
           }
         ]
       }
@@ -173,7 +173,7 @@
         "osProfile": {
           "computerName": "[variables('vmName')]",
           "adminUsername": "[parameters('adminUsername')]",
-          "adminPassword": "[parameters('adminPassword')]",
+          "adminPassword": "[parameters('adminPasswordOrKey')]",
           "linuxConfiguration": "[if(equals(variables('authenticationType'), 'password'), null(), variables('linuxConfiguration'))]"
         }
       },
