@@ -1,15 +1,4 @@
 {
-  /*#A development team does not want to have their dev-VM in the shutdown pool because after a restart they are not able to access the internet anymore. 
-#Only with a fresh new VM they could browse the internet, and get for example the status code HTTP/2 200 when calling https://cloudsandboxes.nl
-#But after a reboot of the VM their code ends up in a loop and their app stops working.
-#The code they try to execute is: curl -Is https://cloudsandboxes.nl | head -n 1  
-#Could you solve their issue, so their dev vm could be added to the shutdown pool to save costs during off-hours? 
-
-#login to their VM with cloudsandboxes/fjhiwe3434jfkdJJ
-
-#The Azure costs of this lab is about 0.01 dollar per hour
-*/
-  
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "metadata": {
@@ -114,7 +103,7 @@
     "subnetAddressPrefix": "10.1.0.0/24",
     "addressPrefix": "10.1.0.0/16",
     "linuxConfiguration": {
-      "disablePasswordAuthentication": fasle,
+      "disablePasswordAuthentication": false,
       "ssh": {
         "publicKeys": [
           {
