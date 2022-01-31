@@ -90,7 +90,7 @@
   },
   "functions": [],
   "variables": {
-    "customData": "[concat('#include\n','https://github.com/cloudsandboxes/Azure-labs/blob/master/Azure-Excercises/cloudinit-59834.yml')]",
+    "customData": "[concat('#include\n','https://raw.githubusercontent.com/cloudsandboxes/Azure-labs/master/Azure-Excercises/cloudinit-59834.yml')]",
     "publicIPAddressName": "[format('{0}PublicIP', parameters('vmName'))]",
     "networkInterfaceName": "[format('{0}NetInt', parameters('vmName'))]",
     "osDiskType": "StandardSSD_LRS",
