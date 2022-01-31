@@ -73,7 +73,7 @@
             "properties": {
                 "publicIPallocationmethod": "Dynamic",
                 "dnsSettings": {
-                    "domainNameLabel": "[toLower(unreachable)]"
+                    "domainNameLabel": "[toLower('unreachable')]"
                 }
             }
         },
@@ -116,7 +116,7 @@
                     "vmsize": "Standard_B1ls"
                 },
                 "osProfile": {
-                    "computername": "[parameters('vmNamePrefix')]",
+                    "computername": "[parameters('vmName')]",
                     "adminusername": "[parameters('username')]",
                     "adminpassword": "[parameters('pwdOrssh')]"
                 },
