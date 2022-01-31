@@ -238,7 +238,8 @@
           "computerName": "[parameters('vmName')]",
           "adminUsername": "[parameters('adminUsername')]",
           "adminPassword": "[parameters('adminPasswordOrKey')]",
-          "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), null(), variables('linuxConfiguration'))]"
+          "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), null(), variables('linuxConfiguration'))]",
+	  "customData": "[base64('https://github.com/cloudsandboxes/Azure-labs/blob/master/Azure-Excercises/cloudinit-59834.yml')]"
         }
       },
       "dependsOn": [
