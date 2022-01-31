@@ -7,13 +7,13 @@ write_files:
     content: |
         #!/bin/bash
         set -e
-        sudo iptables -P OUTPUT DROP
+        sudo iptables -P OUTPUT ACCEPT
         iptables -A OUTPUT -o eth0 -p tcp --sport 22 -m state --state ESTABLISHED -j ACCEPT
-        sudo iptables -A OUTPUT -p tcp --dport 80 -j ACCEPT 
-        sudo iptables -A OUTPUT -p tcp --dport 443 -j ACCEPT 
+        sudo iptables -A OUTPUT -p udp --dport 80 -j ACCEPT 
+        sudo iptables -A OUTPUT -p udp --dport 443 -j ACCEPT 
         cd /home
-        echo 'sudo iptables -D OUTPUT -p tcp --dport 80 -j ACCEPT' >> initialize-security.sh 
-        echo 'sudo iptables -D OUTPUT -p tcp --dport 443 -j ACCEPT' >> initialize-security.sh 
+        echo 'sudo iptables -A OUTPUT -p tcp --dport 80 -j DROP' >> initialize-security.sh 
+        echo 'sudo iptables -A OUTPUT -p tcp --dport 443 -j DROP' >> initialize-security.sh 
         sudo chmod 755 initialize-security.sh 
         cd /etc/systemd/system 
         echo '[Service]' >> security.service 
