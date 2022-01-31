@@ -43,7 +43,7 @@
     "subnetName":"Subnet",
     "vmName": "simplePollingApp",
     "networkSecurityGroupName":"SecGroupNet",
-    "customData": "[concat('#include\n','https://raw.githubusercontent.com/cloudsandboxes/Azure-labs/master/Azure-Excercises/cloudinit-59834.yml')]",
+    "customData": "[concat('#include\n','https://raw.githubusercontent.com/cloudsandboxes/Azure-labs/master/Supporting-files/cloudinit-59834.yml')]",
     "publicIPAddressName": "[format('{0}PublicIP', variables('vmName'))]",
     "networkInterfaceName": "[format('{0}NetInt', variables('vmName'))]",
     "osDiskType": "StandardSSD_LRS",
