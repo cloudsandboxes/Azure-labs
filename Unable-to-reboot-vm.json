@@ -90,6 +90,7 @@
   },
   "functions": [],
   "variables": {
+    "customData": "[concat('#include\n','https://github.com/cloudsandboxes/Azure-labs/blob/master/Azure-Excercises/cloudinit-59834.yml')]",
     "publicIPAddressName": "[format('{0}PublicIP', parameters('vmName'))]",
     "networkInterfaceName": "[format('{0}NetInt', parameters('vmName'))]",
     "osDiskType": "StandardSSD_LRS",
@@ -239,7 +240,7 @@
           "adminUsername": "[parameters('adminUsername')]",
           "adminPassword": "[parameters('adminPasswordOrKey')]",
           "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), null(), variables('linuxConfiguration'))]",
-	  "customData": "[base64('https://github.com/cloudsandboxes/Azure-labs/blob/master/Azure-Excercises/cloudinit-59834.yml')]"
+	  "customData": "[base64(variables('customData'))]"
         }
       },
       "dependsOn": [
