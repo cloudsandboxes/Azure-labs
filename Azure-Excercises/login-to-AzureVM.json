@@ -19,7 +19,7 @@
                 "description": "Specify the OS username"
             }
         },
-        "pwdOrssh": {
+        "pwdOrSsh": {
             "type": "securestring",
             "metadata": {
                 "description": "If Windows, specify the password for the OS username. If Linux, provide the SSH."
@@ -121,7 +121,7 @@
                 "osProfile": {
                     "computername": "[variables('vmName')]",
                     "adminusername": "[parameters('username')]",
-                    "adminpassword": "[parameters('pwdOrssh')]"
+                    "adminpassword": "[parameters('pwdOrSsh')]"
                 },
                 "storageProfile": {
                     "imageReference": {
