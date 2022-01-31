@@ -20,13 +20,14 @@
 >
 ----
 >
-| Don't ever restart the VM |
+| Access Azure VM |
 |:---|
-|<strong>Task:</strong> The Linux Vm runs in Azure and it runs an application that polls information from a website. Only after a restart of the VM the internet connectivity is gone. It seems the networking configuration has some cache settings which don't get reset. Could you solve this issue for this development team?|
-|<strong>Difficulty:</strong> <img src="/dashboard-files/3-star-rating.png" alt="difficulty" width="100"/>|
-|<strong>Azure resoruces:</strong> Ubuntu VM, NSG, Vnet, routing table, Microsoft Backbone|
-|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FUnable-to-reboot-vm.json)|
+|<strong>Task:</strong> Deploy a simple Azure vm, although connecting via SSH/RDP does not work. Could you solve it so we could use SSH/RDP to login? |
+|<strong>Difficulty:</strong> <img src="/dashboard-files/2-star-rating.png" alt="difficulty" width="100"/>|
+|<strong>Azure resoruces:</strong> Windows or Linux VM, Vnet, Microsoft Backbone|
+|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fazure-excercises%2Flogin-to-AzureVM.json)|
 >
+
 
 # Azure Platform-as-a-Service (IaaS) excercises. 
 
