@@ -12,10 +12,11 @@
 
 | Don't ever restart the VM |
 |:---|
-|<strong>Task:</strong> The Linux Vm runs in Azure and it runs an application that polls information from a website. Only after a restart of the VM the internet connectivity is gone. It seems the networking configuration has some cache settings which don't get reset. Could you solve this issue for this development team?|
+|<strong>Task:</strong> A Linux Vm runs in Azure, you can execute a curl request succesfully like *curl -Is https://cloudsandboxes.nl \| head -n 1*. Only after a restart of the VM the curl command doesn't work anymore. It seems like a routing issue. Could you solve this issue for this development team? Restart the VM to experience their problem.  |
 |<strong>Difficulty:</strong> <img src="/dashboard-files/3-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resoruces:</strong> Ubuntu VM, NSG, Vnet, routing table, Microsoft Backbone|
-|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FEnableBrowsingSimple.yml)|
+|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FUnable-to-reboot-vm.json)|
+
 >
 ----
 >
@@ -24,7 +25,7 @@
 |<strong>Task:</strong> The Linux Vm runs in Azure and it runs an application that polls information from a website. Only after a restart of the VM the internet connectivity is gone. It seems the networking configuration has some cache settings which don't get reset. Could you solve this issue for this development team?|
 |<strong>Difficulty:</strong> <img src="/dashboard-files/3-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resoruces:</strong> Ubuntu VM, NSG, Vnet, routing table, Microsoft Backbone|
-|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FEnableBrowsingSimple.yml)|
+|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FUnable-to-reboot-vm.json)|
 >
 
 # Azure Platform-as-a-Service (IaaS) excercises. 
