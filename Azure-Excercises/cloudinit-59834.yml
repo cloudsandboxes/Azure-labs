@@ -1,17 +1,19 @@
 #cloud-config
 write_files:
 
--   path: /usr/local/bin/start-app.sh
+-   path: /home/start-app.sh
     permissions: 0777
     owner: root
     content: |
         #!/bin/bash
         set -e
-        sudo iptables -D OUTPUT -p tcp --dport 80 -j ACCEPT 
-        sudo iptables -D OUTPUT -p tcp --dport 443 -j ACCEPT 
+        sudo iptables -P OUTPUT DROP
+        iptables -A OUTPUT -o eth0 -p tcp --sport 22 -m state --state ESTABLISHED -j ACCEPT
+        sudo iptables -A OUTPUT -p tcp --dport 80 -j ACCEPT 
+        sudo iptables -A OUTPUT -p tcp --dport 443 -j ACCEPT 
         cd /home
-        echo 'sudo iptables -A OUTPUT -p tcp --dport 80 -j ACCEPT' >> initialize-security.sh 
-        echo 'sudo iptables -A OUTPUT -p tcp --dport 443 -j ACCEPT' >> initialize-security.sh 
+        echo 'sudo iptables -D OUTPUT -p tcp --dport 80 -j ACCEPT' >> initialize-security.sh 
+        echo 'sudo iptables -D OUTPUT -p tcp --dport 443 -j ACCEPT' >> initialize-security.sh 
         sudo chmod 755 initialize-security.sh 
         cd /etc/systemd/system 
         echo '[Service]' >> security.service 
@@ -24,4 +26,4 @@ write_files:
         sudo systemctl restart security.service"
 
 runcmd:
-    - bash /usr/local/bin/start-app.sh
+    - bash /home/start-app.sh
