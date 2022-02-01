@@ -1,0 +1,135 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+	   "storageAccountName": {
+            "type": "string",
+            "defaultValue": "[concat('secret6', substring(uniqueString(resourceGroup().id),0,6))]",
+            "metadata": {
+                "description": "Name of storage account"
+            }
+        },
+		"containerName": {
+            "type": "string",
+            "defaultValue": "secretcontainer",
+            "metadata": {
+                "description": "Name of storage account"
+            }
+        },
+		"utcValue":  {
+      		"type": "string",
+      		"defaultValue": "[utcNow()]"
+    }
+  },
+  "variables": {
+        "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+  },
+  "resources": [
+         {
+            "name": "[parameters('storageAccountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2021-08-01",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "accessTier": "hot",
+                "minimumTlsVersion": "TLS1_2",
+                "supportsHttpsTrafficOnly": true,
+                "allowBlobPublicAccess": false,
+                "allowSharedKeyAccess": true,
+                "allowCrossTenantReplication": true,
+                "defaultToOAuthAuthentication": false,
+                "networkAcls": {
+                    "bypass": "AzureServices",
+                    "defaultAction": "Allow",
+                    "ipRules": []
+                },
+                "encryption": {
+                    "keySource": "Microsoft.Storage",
+                    "services": {
+                        "blob": {
+                            "enabled": true
+                        },
+                        "file": {
+                            "enabled": true
+                        },
+                        "table": {
+                            "enabled": true
+                        },
+                        "queue": {
+                            "enabled": true
+                        }
+                    },
+                    "requireInfrastructureEncryption": false
+                }
+            },
+            "dependsOn": [],
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "StorageV2",
+            "tags": {}
+        },
+        {
+            "name": "[concat(parameters('storageAccountName'), '/default')]",
+            "type": "Microsoft.Storage/storageAccounts/blobServices",
+            "apiVersion": "2021-08-01",
+            "properties": {
+                "restorePolicy": {
+                    "enabled": false
+                },
+                "deleteRetentionPolicy": {
+                    "enabled": true,
+                    "days": 7
+                },
+                "containerDeleteRetentionPolicy": {
+                    "enabled": false,
+                    "days": 7
+                },
+                "changeFeed": {
+                    "enabled": false
+                },
+                "isVersioningEnabled": true
+            },
+            "dependsOn": [
+                "[concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+            "apiVersion": "2019-04-01",
+            "name": "[concat(parameters('storageAccountName'), '/default/', parameters('containerName'))]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts/blobServices', parameters('storageAccountName'), 'default')]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+            ],
+            "properties": {
+                "publicAccess": "None"
+            }
+        },
+		{
+    "type": "Microsoft.Resources/deploymentScripts",
+    "apiVersion": "2020-10-01",
+    "name": "Uploadblobsecrets",
+    "location": "[resourceGroup().location]",
+    "kind": "AzureCLI",
+    "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', parameters('storageAccountName'), 'default', parameters('containerName'))]"
+    ],
+    "properties": {
+        "forceUpdateTag": "[parameters('utcValue')]",
+        "AzCliVersion": "2.2.0",
+        "timeout": "PT10M",
+		"environmentVariables": [
+          {
+            "name": "keys",
+            "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2019-04-01').keys[0].value]"
+          }
+        ],
+        "arguments": "[concat(parameters('storageAccountName'), ' ', parameters('containerName'))]",
+        "scriptContent": " echo 'This is a text string with secret code ^5ds5dGSawe2.' > testfile3.txt ; echo 'This is a text string with secret code jfsd8373hjshHSH.' > testfile4.txt ; echo 'This is a text string with secret code 2FHDJhdjhf2h34h3.' > testfile5.txt ; echo 'This is a text string with secret code JDKJDFIEJKSKJD@.' > testfile6.txt ;  echo 'This is a text string with secret code UI873632rt.' > testfile1.txt ;  echo 'This is a text string with secret code UI8736A32rt.' > testfile7.txt ;   echo 'This is a text string with secret code [$null].' > testfile2.txt ;  echo 'This is a text string with secret code UI*5sgdsg222s.' > testfile8.txt ;     echo 'This is a text string with secret code )3fs(ewwfsdf.' > testfile9.txt  ;  echo 'This is  a text string  with  secret code [$null].'> testfile10.txt ;  az storage blob upload --container-name $2 --account-name $1 --account-key $keys --file testfile2.txt --name secret.txt --output none ;az storage blob upload --container-name $2 --account-name $1 --account-key $keys --file testfile1.txt --name secret.txt --output none ;az storage blob upload --container-name $2 --account-name $1 --account-key $keys --file testfile10.txt --name secret.txt --output none ;az storage blob upload --container-name $2 --account-name $1 --account-key $keys --file testfile10.txt --name secret.txt --output none ",
+        "cleanupPreference": "OnSuccess",
+        "retentionInterval": "P1D"
+    }
+}
+  ]
+}
