@@ -257,7 +257,7 @@
             "name": "[variables('nicname1')]",
             "location": "[resourceGroup().location]",
             "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetname'), 'backend')]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetname'), 'savesubnet')]",
                 "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsg'))]"
             ],
             "properties": {
@@ -268,7 +268,7 @@
                             "privateIPAddress": "10.1.0.12",
                             "privateIPAllocationMethod": "Static",
                             "subnet": {
-                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetname'), 'backend')]"
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetname'), 'savesubnet')]"
                             },
                             "primary": true,
                             "privateIPAddressVersion": "IPv4"
@@ -288,7 +288,7 @@
         {
             "type": "Microsoft.Network/virtualNetworks/subnets",
             "apiVersion": "2020-11-01",
-            "name": "[concat(variables('vnetname'), '/frontend')]",
+            "name": "[concat(variables('vnetname'), '/hackedsubnet')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/virtualNetworks', variables('vnetname'))]",
                 "[resourceId('Microsoft.Network/routeTables', variables('routetable'))]"
@@ -306,7 +306,7 @@
         {
             "type": "Microsoft.Network/virtualNetworks/subnets",
             "apiVersion": "2020-11-01",
-            "name": "[concat(variables('vnetname'), '/backend')]",
+            "name": "[concat(variables('vnetname'), '/savesubnet')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/virtualNetworks', variables('vnetname'))]",
                 "[resourceId('Microsoft.Network/routeTables', variables('routetable'))]"
@@ -328,7 +328,7 @@
             "location": "[resourceGroup().location]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIP'))]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetname'), 'frontend')]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetname'), 'hackedsubnet')]",
                 "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsg'))]"
             ],
             "properties": {
@@ -342,7 +342,7 @@
                                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIP'))]"
                             },
                             "subnet": {
-                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetname'), 'frontend')]"
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetname'), 'hackedsubnet')]"
                             },
                             "primary": true,
                             "privateIPAddressVersion": "IPv4"
