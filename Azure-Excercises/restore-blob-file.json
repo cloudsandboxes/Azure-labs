@@ -23,10 +23,26 @@
   },
   "variables": {
         "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
-	  "taskDescription": "Task_Description",
-	  "details": "A Linux Vm runs in Azure, you can execute a curl request succesfully like curl -Is https://cloudsandboxes.nl | head -n 1. Only after a restart of the VM the curl command doesn't work anymore. It seems like a routing issue. Could you solve this issue for this development team? Restart the VM to experience their problem.\n/n\n<br>\nfdfd"
+	  "taskDescription": "Task_Description_Restore-Blob-File",
+	  "details": "somebody accidentally overwrote a blob file with an important secret. They tried to fix it, but only make it worse. Could you restore the file with the correct secret?"
   },
   "resources": [
+	  
+	  {
+      "type": "Microsoft.Web/customApis",
+      "apiVersion": "2016-06-01",
+      "name": "[variables('taskDescription')]",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+        "description": "[variables('details')]",
+	"displayName": "logicappplayname",
+	"iconUri": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADYYG7QAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAQHSURBVFhH7ZfNa9RAGIfzZ3jRixeLSKFe/BfEDyqtaLX1W29CRUGx1mrBg1IFQQ8KgqB4EDz0YgWtl968FATxJh4Fd5PsJvuRZHdff7Pv7JLdTDKT7haK9CEsSzKZ95l33pkkFm0xtoV0/C9CzWazXq9XKpVyuVwqlVzXxa/nedVqNQzDVqsl2+UnnxAi1Wo1hLfbOCr4EkRhJm/LQw4hjJ6DcWBopcEN0BL/gyCQ95thJISxcgD8ckhD0L5YLGI2zSdRL4RCKRQKeVXisJbhDGqEUKec+cHBqEycsoSGaMPAKYoi2XsKqUJYTcO1YTB32DJkDBVqoUajgdHIPoYKLw4ZRoVaCLcB2cewgRB2EBkpgUIIW/BmTFYXDBUTl7YRKITypcdxyyUnqOTen7CbyHi99AthYzVPD7QrnlP2nJeffaIcSYVQWpL6hfAMMk+PX3aiwN5xtWkdpNnXNaKieMyagWErnyr9QmhnJOS4XsmhZnHXtaY1Q9YVsibo9juUKvJkNB5EweBl1Bg9Qti1DOcLdYN87Jzt2PAxQYvv204mI2ojA8foEcJmiEbyjnREbsjefaNhTcds+DhGDz6YOmHwyTLqEULla4XaubHH5iPrdMKGj3F69tGnlt4JQsmnW4+QvqIdl6hw4F5kTSU84sc4vfoinLI7U9Z1jxBeXDKEcAV1MzLXsE4kDJLHYXqx6rfqWU4QwiYsY3cwzRDO1nxn+Zs387A+cqthXewEPk/Cj4/LnZNnaXIpmFis2yWnlD5zeiG8b2RlyHWrnlhc0y/rCCkCX6DR+ejRSuX+cmVpxReW7DRJ67+wpO3MjBtMme/72TWEi9S0J58HUugsnXyGHm2qC1GRrUvt88dp7YeHjGZ2JoSSr0c9QtrHalJo4mmAM7hEgW2d6xfiu9JALM2y126M/ULnEkI8ZQZCnD0ZOEaPEIBQVhm1hQ49CcSyh9MUHXkcEzpF1hlhaR2l1e96IZSsjBqjX0hT144bVp23a/6em9H+hXDvXHT9TY1C0b5Rs0fvhGN3o7GFaN9c+Oev2EL5LiVp3yH9QmiknbWgKjZreYRip+HI2Am75/F4SR+XSA+QITsEDfpdSAiB7O0RCIPYIU+mnFeC/pNvsV9/0qd1lZA2SQMCG/Qvg8XgBacQAtokDQJs8FohIyVQC2F72LzPIPzKMCrUQgATN3SntMmKkyoEkFgsTtnZwMBG+9kKsoQA1sJQnNgGH8Sy33Q0QgAPZPQ1SI1jmnC7NjeMXgigxrHuNqDFiUn7JlRiJMQgVYjBw2U4ah98Cc2ggjc+w8R0ySHEQItfmxAyLgf4DIAWspJXhckt1AUVivcnVD1iM1iV0N2YR5eNC20S20I6tpgQ0T9aMGVDfDT/AQAAAABJRU5ErkJggg==",
+        "backendService": {
+          "serviceurl": "http://placeholder"
+        }
+      }
+    },
 	  
         {
             "type": "Microsoft.Web/customApis",
