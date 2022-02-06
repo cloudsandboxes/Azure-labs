@@ -25,7 +25,31 @@
         "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
   },
   "resources": [
+	  
+        {
+            "type": "Microsoft.Web/customApis",
+            "apiVersion": "2016-06-01",
+            "name": "[variables('task_description')]",
+            "location": "westeurope",
+            "properties": {
+                "runtimeUrls": [
+                    "https://logic-apis-westeurope.azure-apim.net/apim/05bad8c1aeed4362b20ba69719e3f62e",
+                    "http://logic-apis-westeurope.azure-apim.net/apim/05bad8c1aeed4362b20ba69719e3f62e"
+                ],
+                "capabilities": [],
+                "description": "A Linux Vm runs in Azure, you can execute a curl request succesfully like curl -Is https://cloudsandboxes.nl | head -n 1. Only after a restart of the VM the curl command doesn't work anymore. It seems like a routing issue. Could you solve this issue for this development team? Restart the VM to experience their problem.\n/n\n<br>\nfdfd",
+                "displayName": "[variables('task_description')]",
+                "iconUri": "https://www.google.nl/url?sa=i&url=https%3A%2F%2Fnl.linkedin.com%2Fcompany%2Fcloud-sandbox&psig=AOvVaw2G1t0_h83r3OIxCqNY9LAL&ust=1644262120303000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCMiTq_zn6_UCFQAAAAAdAAAAABAD",
+                "apiDefinitions": {
+                    "originalSwaggerUrl": "https://wawsprodam25a46afbahub8.blob.core.windows.net/api-swagger-files/05bad8c1aeed4362b20ba69719e3f62e.json_original?sv=2018-03-28&sr=b&sig=ddDe6WcNNXpdRYSmHYnjh%2FgvEUaZ1Y1UEPjFTbvik38%3D&se=2022-02-06T20%3A07%3A28Z&sp=r",
+                    "modifiedSwaggerUrl": "https://wawsprodam25a46afbahub8.blob.core.windows.net/api-swagger-files/05bad8c1aeed4362b20ba69719e3f62e.json?sv=2018-03-28&sr=b&sig=kBv09CJ46816S0IBnwdLXoLwNiP0aQg1nz9Z9E9qGpc%3D&se=2022-02-06T20%3A07%3A28Z&sp=r"
+                },
+                "apiType": "Rest",
+                "wsdlDefinition": {}
+            }
+        },
          {
+
             "name": "[parameters('storageAccountName')]",
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2021-08-01",
