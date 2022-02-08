@@ -1,0 +1,98 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+         "storageAccountName": {
+              "type": "string",
+              "defaultValue": "[concat('secret6', substring(uniqueString(resourceGroup().id),0,6))]",
+              "metadata": {
+                  "description": "Name of storage account"
+              }
+          },
+          "containerName": {
+              "type": "string",
+              "defaultValue": "secretcontainer",
+              "metadata": {
+                  "description": "Name of storage account"
+              }
+          },
+          "utcValue":  {
+                "type": "string",
+                "defaultValue": "[utcNow()]"
+      }
+    },
+    "variables": {
+          "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+        },
+    "resources": [
+                      {
+      "type": "Microsoft.Resources/deploymentScripts",
+      "apiVersion": "2020-10-01",
+      "name": "check_solution_step_1",
+      "location": "[resourceGroup().location]",
+      "kind": "AzureCLI",
+      "dependsOn": [],
+      "properties": {
+          "forceUpdateTag": "[parameters('utcValue')]",
+          "AzCliVersion": "2.2.0",
+          "timeout": "PT10M",
+          "environmentVariables": [
+            {
+              "name": "keys",
+              "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2019-04-01').keys[0].value]"
+            }
+          ],
+          "arguments": "[concat(parameters('storageAccountName'), ' ', parameters('containerName'))]",
+          "scriptContent": "az storage blob list --container-name $2 --account-name $1 --account-key $keys > secret.txt; if grep -q 'secretcontainer' 'secret.txt'; then echo 'found'; else echo $(<secret.txt); fi",
+          "cleanupPreference": "Always",
+          "retentionInterval": "PT1H"
+      }
+  },
+                {
+      "type": "Microsoft.Resources/deploymentScripts",
+      "apiVersion": "2020-10-01",
+      "name": "check_solution_step_2",
+      "location": "[resourceGroup().location]",
+      "kind": "AzureCLI",
+      "dependsOn": [ "['Microsoft.Resources/deploymentScripts/check_solution_step_1']"],
+      "properties": {
+          "forceUpdateTag": "[parameters('utcValue')]",
+          "AzCliVersion": "2.2.0",
+          "timeout": "PT10M",
+          "environmentVariables": [
+            {
+              "name": "keys",
+              "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2019-04-01').keys[0].value]"
+            }
+          ],
+          "arguments": "[concat(parameters('storageAccountName'), ' ', parameters('containerName'))]",
+          "scriptContent": "az storage blob download --container-name $2 --account-name $1 --account-key $keys --file secret.txt --name secret.txt --output none; if grep -q 'This is a text string with secret code UI873632rt.' 'secret.txt'; then echo 'found'; else echo 'the blob content $(<secret.txt) is wrong'; fi",
+          "cleanupPreference": "Always",
+          "retentionInterval": "PT1H"
+      }
+  },
+                {
+      "type": "Microsoft.Resources/deploymentScripts",
+      "apiVersion": "2020-10-01",
+      "name": "upload_answer_to_get_points",
+      "location": "[resourceGroup().location]",
+      "kind": "AzureCLI",
+      "dependsOn": [ "['Microsoft.Resources/deploymentScripts/check_solution_step_2']"],
+      "properties": {
+          "forceUpdateTag": "[parameters('utcValue')]",
+          "AzCliVersion": "2.2.0",
+          "timeout": "PT10M",
+          "environmentVariables": [
+            {
+              "name": "keys",
+              "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2019-04-01').keys[0].value]"
+            }
+          ],
+          "arguments": "[concat(parameters('storageAccountName'), ' ', parameters('containerName'))]",
+          "scriptContent": "curl --request POST  --url 'https://prod-138.westeurope.logic.azure.com:443/workflows/c02af7cedd614b91a85a44d5b6352739/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=OcEhPQPQgByV7WQdgPDBeAuHqsPSCstX5I03M6hvz38'  --header 'content-type: application/json' --data '{\"user\":123,\"excercise\":56,\"answer\":89}'",
+          "cleanupPreference": "Always",
+          "retentionInterval": "PT1H"
+      }
+  }
+    ]
+  }
