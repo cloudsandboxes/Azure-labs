@@ -2,27 +2,15 @@
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-	   "storageAccountName": {
-            "type": "string",
-            "defaultValue": "[concat('secret6', substring(uniqueString(resourceGroup().id),0,6))]",
-            "metadata": {
-                "description": "Name of storage account"
-            }
-        },
-		"containerName": {
-            "type": "string",
-            "defaultValue": "secretcontainer",
-            "metadata": {
-                "description": "Name of storage account"
-            }
-        },
 		"utcValue":  {
       		"type": "string",
       		"defaultValue": "[utcNow()]"
     }
   },
   "variables": {
-        "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+        "storageAccountName":"[concat('secret6', substring(uniqueString(resourceGroup().id),0,6))]",
+	  "containerName": "secretcontainer"
+	  "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
 	  "taskDescription": "1_Task_Description_Restore-Blob-File",
 	  "details": "Somebody accidentally overwrote a blob file with an important secret. They tried to fix it, but they only made it worse. Could you restore the file with the correct secret?"
   },
@@ -45,7 +33,7 @@
     },
          {
 
-            "name": "[parameters('storageAccountName')]",
+            "name": "[variables('storageAccountName')]",
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2021-08-01",
             "location": "[resourceGroup().location]",
@@ -89,7 +77,7 @@
             "tags": {}
         },
         {
-            "name": "[concat(parameters('storageAccountName'), '/default')]",
+            "name": "[concat(variables('storageAccountName'), '/default')]",
             "type": "Microsoft.Storage/storageAccounts/blobServices",
             "apiVersion": "2021-08-01",
             "properties": {
@@ -110,16 +98,16 @@
                 "isVersioningEnabled": true
             },
             "dependsOn": [
-                "[concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]"
+                "[concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]"
             ]
         },
         {
             "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
             "apiVersion": "2019-04-01",
-            "name": "[concat(parameters('storageAccountName'), '/default/', parameters('containerName'))]",
+            "name": "[concat(variables('storageAccountName'), '/default/', variables('containerName'))]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts/blobServices', parameters('storageAccountName'), 'default')]",
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts/blobServices', variables('storageAccountName'), 'default')]",
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
             ],
             "properties": {
                 "publicAccess": "None"
@@ -132,7 +120,7 @@
     "location": "[resourceGroup().location]",
     "kind": "AzureCLI",
     "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', parameters('storageAccountName'), 'default', parameters('containerName'))]"
+        "[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', variables('storageAccountName'), 'default', variables('containerName'))]"
     ],
     "properties": {
         "forceUpdateTag": "[parameters('utcValue')]",
@@ -141,10 +129,10 @@
 		"environmentVariables": [
           {
             "name": "keys",
-            "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2019-04-01').keys[0].value]"
+            "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-04-01').keys[0].value]"
           }
         ],
-        "arguments": "[concat(parameters('storageAccountName'), ' ', parameters('containerName'))]",
+        "arguments": "[concat(variables('storageAccountName'), ' ', variables('containerName'))]",
         "scriptContent": " echo 'This is a text string with secret code ^5ds5dGSawe2.' > testfile3.txt ; echo 'This is a text string with secret code jfsd8373hjshHSH.' > testfile4.txt ; echo 'This is a text string with secret code 2FHDJhdjhf2h34h3.' > testfile5.txt ; echo 'This is a text string with secret code JDKJDFIEJKSKJD@.' > testfile6.txt ;  echo 'This is a text string with secret code UI873632rt.' > testfile1.txt ;  echo 'This is a text string with secret code UI8736A32rt.' > testfile7.txt ;   echo 'This is a text string with secret code [$null].' > testfile2.txt ;  echo 'This is a text string with secret code UI*5sgdsg222s.' > testfile8.txt ;     echo 'This is a text string with secret code )3fs(ewwfsdf.' > testfile9.txt  ;  echo 'This is  a text string  with  secret code [$null].'> testfile10.txt ;  az storage blob upload --container-name $2 --account-name $1 --account-key $keys --file testfile2.txt --name secret.txt --output none ;az storage blob upload --container-name $2 --account-name $1 --account-key $keys --file testfile1.txt --name secret.txt --output none ;az storage blob upload --container-name $2 --account-name $1 --account-key $keys --file testfile10.txt --name secret.txt --output none ;az storage blob upload --container-name $2 --account-name $1 --account-key $keys --file testfile10.txt --name secret.txt --output none ",
         "cleanupPreference": "Always",
         "retentionInterval": "PT1H"
