@@ -43,7 +43,7 @@
             }
           ],
           "arguments": "[concat(parameters('storageAccountName'), ' ', parameters('containerName'))]",
-          "scriptContent": "az storage blob list --container-name $2 --account-name $1 --account-key $keys > secret.txt; if grep -q 'secretcontainer' 'secret.txt'; then echo 'found'; else echo $(<secret.txt); fi",
+          "scriptContent": "az storage blob list --container-name $2 --account-name $1 --account-key $keys > content.txt; if grep -q 'secret.txt' 'content.txt'; then echo 'found' && echo 'step2'; else echo $(<secret.txt); fi",
           "cleanupPreference": "Always",
           "retentionInterval": "PT1H"
       }
