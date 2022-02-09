@@ -58,6 +58,8 @@
 |<strong>Difficulty:</strong> <img src="/dashboard-files/2-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Blob Storage, disaster recovery strategies|
 |[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FAzure-Excercises%2Frestore-blob-file.json) | 
+| [Earn points by checking your solution](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fsolutions-azure%2Frestore-blob-file.json)|
+
 >
 ----
 | webapp cloud FinOps |
@@ -65,8 +67,8 @@
 |<strong>Task:</strong> An development team is hosting a webapplication with 15 microservices. From a cost perspective they could save on their monthly bill. Could you configure the Azure architecture to reduce the bill by 50%?|
 |<strong>Difficulty:</strong> <img src="/dashboard-files/1-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Azure Web Application, Azure service plan, hosting plans, Azure cost management, Cloud FinOps|
-|<strong>start:</strong>[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FAzure-Excercises%2Fwebapp-finops.json) |
-|<strong>check solution:</strong> [![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fsolutions-azure%2Frestore-blob-file.json)|
+|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FAzure-Excercises%2Fwebapp-finops.json) |
+
 ---
 
 # Azure Big data excercises
