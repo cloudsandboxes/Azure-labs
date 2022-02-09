@@ -128,7 +128,7 @@
 		{
     "type": "Microsoft.Resources/deploymentScripts",
     "apiVersion": "2020-10-01",
-    "name": "Uploadblobsecrets",
+    "name": "Fix_secret",
     "location": "[resourceGroup().location]",
     "kind": "AzureCLI",
     "dependsOn": [
@@ -146,8 +146,8 @@
         ],
         "arguments": "[concat(parameters('storageAccountName'), ' ', parameters('containerName'))]",
         "scriptContent": " echo 'This is a text string with secret code ^5ds5dGSawe2.' > testfile3.txt ; echo 'This is a text string with secret code jfsd8373hjshHSH.' > testfile4.txt ; echo 'This is a text string with secret code 2FHDJhdjhf2h34h3.' > testfile5.txt ; echo 'This is a text string with secret code JDKJDFIEJKSKJD@.' > testfile6.txt ;  echo 'This is a text string with secret code UI873632rt.' > testfile1.txt ;  echo 'This is a text string with secret code UI8736A32rt.' > testfile7.txt ;   echo 'This is a text string with secret code [$null].' > testfile2.txt ;  echo 'This is a text string with secret code UI*5sgdsg222s.' > testfile8.txt ;     echo 'This is a text string with secret code )3fs(ewwfsdf.' > testfile9.txt  ;  echo 'This is  a text string  with  secret code [$null].'> testfile10.txt ;  az storage blob upload --container-name $2 --account-name $1 --account-key $keys --file testfile2.txt --name secret.txt --output none ;az storage blob upload --container-name $2 --account-name $1 --account-key $keys --file testfile1.txt --name secret.txt --output none ;az storage blob upload --container-name $2 --account-name $1 --account-key $keys --file testfile10.txt --name secret.txt --output none ;az storage blob upload --container-name $2 --account-name $1 --account-key $keys --file testfile10.txt --name secret.txt --output none ",
-        "cleanupPreference": "OnSuccess",
-        "retentionInterval": "P1D"
+        "cleanupPreference": "Always",
+        "retentionInterval": "PT1H"
     }
 }
   ]
