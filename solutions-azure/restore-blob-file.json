@@ -2,27 +2,15 @@
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-         "storageAccountName": {
-              "type": "string",
-              "defaultValue": "[concat('secret6', substring(uniqueString(resourceGroup().id),0,6))]",
-              "metadata": {
-                  "description": "Name of storage account"
-              }
-          },
-          "containerName": {
-              "type": "string",
-              "defaultValue": "secretcontainer",
-              "metadata": {
-                  "description": "Name of storage account"
-              }
-          },
-          "utcValue":  {
+		        "utcValue":  {
                 "type": "string",
                 "defaultValue": "[utcNow()]"
       }
     },
     "variables": {
-          "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+		  "storageAccountName": "[concat('secret6', substring(uniqueString(resourceGroup().id),0,6))]",
+		  "containerName" : "secretcontainer",
+          "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
         },
     "resources": [
                       {
@@ -39,11 +27,11 @@
           "environmentVariables": [
             {
               "name": "keys",
-              "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2019-04-01').keys[0].value]"
+              "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-04-01').keys[0].value]"
             }
           ],
-          "arguments": "[concat(parameters('storageAccountName'), ' ', parameters('containerName'))]",
-          "scriptContent": "az storage blob list --container-name $2 --account-name $1 --account-key $keys > content.txt; if grep -q 'secret.txt' 'content.txt'; then echo 'found' && echo 'step2'; else echo $(<secret.txt); fi",
+          "arguments": "[concat(variables('storageAccountName'), ' ', variables('containerName'))]",
+          "scriptContent": "az storage blob list --container-name $2 --account-name $1 --account-key $keys > content.txt; if grep -q 'secret.txt' 'content.txt'; then echo 'You managed to keep the storage account, container en blob file'; else echo 'The file secret.txt is not available in the container named (secretcontainer) and the storage account named' $1; exit 1; fi",
           "cleanupPreference": "Always",
           "retentionInterval": "PT1H"
       }
@@ -62,11 +50,11 @@
           "environmentVariables": [
             {
               "name": "keys",
-              "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2019-04-01').keys[0].value]"
+              "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-04-01').keys[0].value]"
             }
           ],
-          "arguments": "[concat(parameters('storageAccountName'), ' ', parameters('containerName'))]",
-          "scriptContent": "az storage blob download --container-name $2 --account-name $1 --account-key $keys --file secret.txt --name secret.txt --output none; if grep -q 'This is a text string with secret code UI873632rt.' 'secret.txt'; then echo 'found'; else echo 'the blob content $(<secret.txt) is wrong'; fi",
+          "arguments": "[concat(variables('storageAccountName'), ' ', variables('containerName'))]",
+          "scriptContent": "az storage blob download --container-name $2 --account-name $1 --account-key $keys --file secret.txt --name secret.txt --output none; if grep -q 'This is a text string with secret code UI873632rt.' 'secret.txt'; then echo 'You have solved the excercise by restoring the correct secret'; else 'The wrong secret is still present in the blob secret.txt'; exit 1; fi",
           "cleanupPreference": "Always",
           "retentionInterval": "PT1H"
       }
@@ -82,14 +70,9 @@
           "forceUpdateTag": "[parameters('utcValue')]",
           "AzCliVersion": "2.2.0",
           "timeout": "PT10M",
-          "environmentVariables": [
-            {
-              "name": "keys",
-              "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2019-04-01').keys[0].value]"
-            }
-          ],
-          "arguments": "[concat(parameters('storageAccountName'), ' ', parameters('containerName'))]",
-          "scriptContent": "curl --request POST  --url 'https://prod-138.westeurope.logic.azure.com:443/workflows/c02af7cedd614b91a85a44d5b6352739/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=OcEhPQPQgByV7WQdgPDBeAuHqsPSCstX5I03M6hvz38'  --header 'content-type: application/json' --data '{\"user\":123,\"excercise\":56,\"answer\":89}'",
+          "environmentVariables": [],
+          "arguments": "[concat(variables('storageAccountName'), ' ', variables('containerName'), ' ', resourcegroup().name)]",
+          "scriptContent": "inputvalue='{\"user\":\"';  inputvalue3='\",\"excercise\":\"upload-blob-file\",\"answer\":\"89\"}'; totalinput=$inputvalue$3$inputvalue3;  curl --request POST  --url 'https://prod-90.westeurope.logic.azure.com:443/workflows/16f7a1959a4d49bfb92fbd5cf47d15d7/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=z6MQyHFqgjKECDv15pZsWE0vXQJq2U4r_gYt94kru_4'  --header 'content-type: application/json' --data $totalinput",
           "cleanupPreference": "Always",
           "retentionInterval": "PT1H"
       }
