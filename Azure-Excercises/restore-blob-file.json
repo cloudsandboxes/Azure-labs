@@ -11,7 +11,7 @@
         "storageAccountName":"[concat('secret6', substring(uniqueString(resourceGroup().id),0,6))]",
 	  "containerName": "secretcontainer",
 	  "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
-	  "taskDescription": "1_Task_Description_Restore-Blob-File",
+	  "taskDescription": "1_Click_here_to_read_the_assignment",
 	  "details": "Somebody accidentally overwrote a blob file with an important secret. They tried to fix it, but they only made it worse. Could you restore the file with the correct secret?"
   },
   "resources": [
