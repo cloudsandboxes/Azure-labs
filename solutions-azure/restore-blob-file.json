@@ -16,7 +16,7 @@
                       {
       "type": "Microsoft.Resources/deploymentScripts",
       "apiVersion": "2020-10-01",
-      "name": "check_solution_step_1",
+      "name": "We_are_checking_your_solution.When_incorrect_a_hint_is_in_the_error_message",
       "location": "[resourceGroup().location]",
       "kind": "AzureCLI",
       "dependsOn": [],
@@ -31,41 +31,18 @@
             }
           ],
           "arguments": "[concat(variables('storageAccountName'), ' ', variables('containerName'))]",
-          "scriptContent": "az storage blob list --container-name $2 --account-name $1 --account-key $keys > content.txt; if grep -q 'secret.txt' 'content.txt'; then echo 'You managed to keep the storage account, container en blob file'; else echo 'The file secret.txt is not available in the container named (secretcontainer) and the storage account named' $1; exit 1; fi",
+          "scriptContent": "az storage blob list --container-name $2 --account-name $1 --account-key $keys > content.txt; if grep -q 'secret.txt' 'content.txt'; then echo 'You managed to keep the storage account, container en blob file'; else echo 'The file secret.txt is not available in the container named (secretcontainer) and the storage account named' $1; exit 1; fi; az storage blob download --container-name $2 --account-name $1 --account-key $keys --file secret.txt --name secret.txt --output none; if grep -q 'This is a text string with secret code UI873632rt.' 'secret.txt'; then echo 'You have solved the excercise by restoring the correct secret'; else 'The wrong secret is still present in the blob secret.txt'; exit 1; fi",
           "cleanupPreference": "Always",
           "retentionInterval": "PT1H"
       }
   },
-                {
+                  {
       "type": "Microsoft.Resources/deploymentScripts",
       "apiVersion": "2020-10-01",
-      "name": "check_solution_step_2",
+      "name": "You_were_successfull.We_are_updating_your_score",
       "location": "[resourceGroup().location]",
       "kind": "AzureCLI",
-      "dependsOn": [ "['Microsoft.Resources/deploymentScripts/check_solution_step_1']"],
-      "properties": {
-          "forceUpdateTag": "[parameters('utcValue')]",
-          "AzCliVersion": "2.2.0",
-          "timeout": "PT10M",
-          "environmentVariables": [
-            {
-              "name": "keys",
-              "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-04-01').keys[0].value]"
-            }
-          ],
-          "arguments": "[concat(variables('storageAccountName'), ' ', variables('containerName'))]",
-          "scriptContent": "az storage blob download --container-name $2 --account-name $1 --account-key $keys --file secret.txt --name secret.txt --output none; if grep -q 'This is a text string with secret code UI873632rt.' 'secret.txt'; then echo 'You have solved the excercise by restoring the correct secret'; else 'The wrong secret is still present in the blob secret.txt'; exit 1; fi",
-          "cleanupPreference": "Always",
-          "retentionInterval": "PT1H"
-      }
-  },
-                {
-      "type": "Microsoft.Resources/deploymentScripts",
-      "apiVersion": "2020-10-01",
-      "name": "upload_answer_to_get_points",
-      "location": "[resourceGroup().location]",
-      "kind": "AzureCLI",
-      "dependsOn": [ "['Microsoft.Resources/deploymentScripts/check_solution_step_2']"],
+      "dependsOn": [ "['Microsoft.Resources/deploymentScripts/We_are_checking_your_solution.When_incorrect_a_hint_is_in_the_error_message']"],
       "properties": {
           "forceUpdateTag": "[parameters('utcValue')]",
           "AzCliVersion": "2.2.0",
