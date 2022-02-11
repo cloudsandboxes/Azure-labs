@@ -11,7 +11,7 @@
         "storageAccountName":"[concat('secret6', substring(uniqueString(resourceGroup().id),0,6))]",
 	  "containerName": "secretcontainer",
 	  "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
-	  "taskDescription": "1_Click_here_to_read_the_assignment"
+	  "taskDescription": ".Click_here_to_read_the_assignment"
   },
   "resources": [
 	  
