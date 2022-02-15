@@ -42,7 +42,7 @@
         "vNicName": "[concat(parameters('platform'), '-', 'nic')]",
         "pNicName": "[concat(parameters('platform'), '-', 'pip')]",
         "vmName": "unreachable",
-	"details": "Deploy a simple Azure vm, although connecting via SSH/RDP does not work. Could you solve it so we could use SSH/RDP to login?"
+	"details": "A Vm is running in Azure, although connecting via SSH/RDP fails. Could you enable the SSH/RDP login? "
     },
     "resources": [
 	            	  {
