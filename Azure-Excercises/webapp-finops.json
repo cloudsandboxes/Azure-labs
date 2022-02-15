@@ -20,7 +20,7 @@
 		"webapp13":  "[concat('webapp13', substring(uniqueString(resourceGroup().id),0,6))]",
 		"webapp14":  "[concat('webapp14', substring(uniqueString(resourceGroup().id),0,6))]",
 		"webapp15":  "[concat('webapp15', substring(uniqueString(resourceGroup().id),0,6))]",
-	        "details" : " An development team is hosting a webapplication with 15 microservices. From a cost perspective they could save on their monthly bill. Could you configure the Azure architecture to reduce the bill by 50%?" 
+	        "details" : " In Azure an application is distributed among 15 webapps. The costs are too high, Could you configure the Azure architecture to reduce the bill by 50%?  Details: This situation happens when a development team is using microservices." 
 	},
     "resources": [
 	    	                	  {
