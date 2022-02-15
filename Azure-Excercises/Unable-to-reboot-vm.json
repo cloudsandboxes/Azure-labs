@@ -37,7 +37,7 @@
   "variables": {
     "ubuntuOSVersion": "18.04-LTS",
     "dnsLabelPrefix": "[toLower(format('simplelinuxvm-{0}', uniqueString(resourceGroup().id)))]",
-     "details": "A Linux Vm runs in Azure, you can execute a curl request succesfully like << curl -Is https://cloudsandboxes.nl | head -n 1 >>. Only after a restart of the VM the curl command doesn't work anymore. It seems like a routing issue. Could you solve this issue for this development team? Restart the VM to experience their problem.",
+     "details": "A Linux Vm runs in Azure. It functions perfectly well, but it will fail after you restart it. Can you make sure it stays functioning after a restart? Before the restart the following curl request is succesfull << curl -Is https://cloudsandboxes.nl | head -n 1 >>. After the restart you get a fail. Only after a restart of the VM the curl command doesn't work anymore. In real life this failure happens when Microsoft is performing a host update, or when patches are installed.",
     "virtualNetworkName":"vNet",
     "vmSize":"Standard_B1ls",
     "subnetName":"Subnet",
