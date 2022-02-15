@@ -19,7 +19,7 @@
 		"nicname1" : "bluevm286",
 		"vnetnameblue" : "vnetblue",
 		"vnetnamered" : "vnetred",
-	        "details": "Two VMs are created. We are unable to setup an rdp session between the two vms (10.1.0.6) -> (10.2.0.6). Could you make the peering between this netwerks possible?"
+	        "details": "Two VMs containing an application are running on Azure. Only establishing a connection between them doesn't work. Could you setup a working connection?   An rdp session between the vm (10.1.0.6) and the vm (10.2.0.6) should work?"
 
 
 
