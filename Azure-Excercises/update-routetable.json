@@ -19,7 +19,7 @@
 		"nicname1" : "savevm286",
 		"vnetname" : "newvnet",
 		"routetable" : "route2firewall",
-	        "details": "The traffic in a two tier netwerk design should be blocked due to the routetable rule <<drop_direct_traffic>>. Although setting up an rdp session to savevm (10.1.0.12) from the hackedvm is still possible. Could you update the routetable so traffic between the subnets is blocked?"
+	        "details": "Two vms are running in Azure and traffic between the two should be blocked by the routetable. Although in practice traffic between the two is able to happen. Could you configure the routetable rule <<drop_direct_traffic>> so it blocks the traffic? Details:  This situation happens in a two tier netwerk design where traffic is forwarded to a central firewall, due to bad configuration hackers could bypass the firewall. For example an RDP session to savevm (10.1.0.12) from the hackedvm is now possible."
 
 
 
