@@ -62,8 +62,7 @@
 |<strong>Task:</strong> somebody accidentally overwrote a blob file with an important secret. They tried to fix it, but only make it worse. Could you restore the file with the correct secret?|
 |<strong>Difficulty:</strong> <img src="/dashboard-files/2-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Blob Storage, disaster recovery strategies|
-|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FAzure-Excercises%2Frestore-blob-file.json) | 
-| Run [this](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fsolutions-azure%2Frestore-blob-file.json) script to check your solution or get a hint|
+|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FAzure-Excercises%2Frestore-blob-file.json)    &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  <a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fsolutions-azure%2Frestore-blob-file.json' target='_blank'> <img src='/dashboard-files/check-opdracht.png' width="167"></a> |
 
 >
 ----
@@ -87,7 +86,7 @@
 | **Azure Data Factory pipeline failure** *(under construction)* |
 |:---|
 |<strong>Task:</strong> A datafactory pipeline suddenly fails, normally it was running, nothing changed according to the development team, could you fix the issue? |
-|<strong>Difficulty:</strong> <img src="/dashboard-files/3-star-rating.png" alt="difficulty" width="100"/>|
+|<strong>Difficulty:</strong> <img src="/dashboard-files/3-star-rating.png" alt="difficulty" width="100" height="34"/>|
 |<strong>Azure resources:</strong> Azure data factory, Azure blob storage, Azure sql|
 |[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FEnableBrowsingSimple.yml)|
 >
