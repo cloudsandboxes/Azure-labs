@@ -31,7 +31,7 @@
             }
           ],
           "arguments": "[concat(variables('storageAccountName'), ' ', variables('containerName'))]",
-          "scriptContent": "az storage blob list --container-name $2 --account-name $1 --account-key $keys > content.txt; if grep -q 'secret.txt' 'content.txt'; then echo 'You managed to keep the storage account, container en blob file'; else echo 'The file secret.txt is not available in the container named (secretcontainer) and the storage account named' $1; exit 1; fi; az storage blob download --container-name $2 --account-name $1 --account-key $keys --file secret.txt --name secret.txt --output none; if grep -q 'This is a text string with secret code UI873632rt.' 'secret.txt'; then echo 'You have solved the excercise by restoring the correct secret'; else 'The wrong secret is still present in the blob secret.txt'; exit 1; fi",
+          "scriptContent": "az storage blob list --container-name $2 --account-name $1 --account-key $keys > content.txt; if grep -q 'secret.txt' 'content.txt'; then echo 'You managed to keep the storage account, container en blob file'; else 'The file secret.txt is not available in the container named (secretcontainer) and the storage account named' $1; exit 1; fi; az storage blob download --container-name $2 --account-name $1 --account-key $keys --file secret.txt --name secret.txt --output none; if grep -q 'This is a text string with secret code UI873632rt.' 'secret.txt'; then echo 'You have solved the excercise by restoring the correct secret'; else 'The wrong secret is still present in the blob secret.txt'; exit 1; fi",
           "cleanupPreference": "Always",
           "retentionInterval": "PT1H"
       }
