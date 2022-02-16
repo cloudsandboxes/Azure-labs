@@ -26,7 +26,7 @@
 	    	                	  {
       "type": "Microsoft.Web/customApis",
       "apiVersion": "2016-06-01",
-      "name": "1_Task_Description_webapp_finops",
+      "name": "1_Click_here_to_read_the_assignment",
       "location": "[resourceGroup().location]",
       "tags": {},
       "properties": {
