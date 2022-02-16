@@ -1,0 +1,55 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+		        "utcValue":  {
+                "type": "string",
+                "defaultValue": "[utcNow()]"
+      }
+    },
+    "variables": {
+		  },
+    "resources": [
+	{
+      "type": "Microsoft.Resources/deploymentScripts",
+      "apiVersion": "2020-10-01",
+      "name": "We_are_checking_your_solution.When_incorrect_a_hint_is_in_the_error_message",
+      "location": "[resourceGroup().location]",
+      "kind": "AzureCLI",
+      "dependsOn": [],
+      "properties": {
+          "forceUpdateTag": "[parameters('utcValue')]",
+          "AzCliVersion": "2.2.0",
+          "timeout": "PT10M",
+          "environmentVariables": [
+			  {"name": "sku",
+              "value": "[reference(resourceId('Microsoft.Web/serverfarms', 'centralhosting'), '2021-02-01', 'Full').sku.tier]"
+			  }
+          ],
+          "arguments": "[concat(reference(resourceId('Microsoft.Web/serverfarms', 'centralhosting'), '2021-02-01', 'Full').sku.tier, ' ', reference(resourceId('Microsoft.Web/sites', concat('webapp2', substring(uniqueString(resourceGroup().id),0,6))), '2021-02-01', 'Full').resourceGroupName, ' ', reference(resourceId('Microsoft.Web/sites', concat('webapp3', substring(uniqueString(resourceGroup().id),0,6))), '2021-02-01', 'Full').resourceGroupName, ' ', reference(resourceId('Microsoft.Web/sites', concat('webapp4', substring(uniqueString(resourceGroup().id),0,6))), '2021-02-01', 'Full').resourceGroupName, ' ', reference(resourceId('Microsoft.Web/sites', concat('webapp5', substring(uniqueString(resourceGroup().id),0,6))), '2021-02-01', 'Full').resourceGroupName, ' ', reference(resourceId('Microsoft.Web/sites', concat('webapp6', substring(uniqueString(resourceGroup().id),0,6))), '2021-02-01', 'Full').resourceGroupName, ' ', reference(resourceId('Microsoft.Web/sites', concat('webapp7', substring(uniqueString(resourceGroup().id),0,6))), '2021-02-01', 'Full').resourceGroupName, ' ', reference(resourceId('Microsoft.Web/sites', concat('webapp8', substring(uniqueString(resourceGroup().id),0,6))), '2021-02-01', 'Full').resourceGroupName, ' ', reference(resourceId('Microsoft.Web/sites', concat('webapp9', substring(uniqueString(resourceGroup().id),0,6))), '2021-02-01', 'Full').resourceGroupName, ' ', reference(resourceId('Microsoft.Web/sites', concat('webapp10', substring(uniqueString(resourceGroup().id),0,6))), '2021-02-01', 'Full').resourceGroupName, ' ', reference(resourceId('Microsoft.Web/sites', concat('webapp11', substring(uniqueString(resourceGroup().id),0,6))), '2021-02-01', 'Full').resourceGroupName, ' ', reference(resourceId('Microsoft.Web/sites', concat('webapp12', substring(uniqueString(resourceGroup().id),0,6))), '2021-02-01', 'Full').resourceGroupName, ' ', reference(resourceId('Microsoft.Web/sites', concat('webapp13', substring(uniqueString(resourceGroup().id),0,6))), '2021-02-01', 'Full').resourceGroupName, ' ', reference(resourceId('Microsoft.Web/sites', concat('webapp14', substring(uniqueString(resourceGroup().id),0,6))), '2021-02-01', 'Full').resourceGroupName, ' ', reference(resourceId('Microsoft.Web/sites', concat('webapp15', substring(uniqueString(resourceGroup().id),0,6))), '2021-02-01', 'Full').resourceGroupName, ' ', reference(resourceId('Microsoft.Web/sites', concat('webapp1', substring(uniqueString(resourceGroup().id),0,6))), '2021-02-01', 'Full').resourceGroupName)]",
+          "scriptContent": "if [ $1 == 'Basic' ] ; then echo 'You have correctly reduced the costs'; else 'The pay as you go price for a D1 is the price per site instead of price per service plan, thus scaling up the instance to Basic saves you more than 50% for 15 webapps. https://azure.microsoft.com/en-us/pricing/details/app-service/windows/'; exit 1; fi",
+          "cleanupPreference": "Always",
+          "retentionInterval": "PT1H"
+      }
+  },
+                    {
+      "type": "Microsoft.Resources/deploymentScripts",
+      "apiVersion": "2020-10-01",
+      "name": "You_were_successfull.We_are_updating_your_score",
+      "location": "[resourceGroup().location]",
+      "kind": "AzureCLI",
+      "dependsOn": [ "['Microsoft.Resources/deploymentScripts/We_are_checking_your_solution.When_incorrect_a_hint_is_in_the_error_message']"],
+      "properties": {
+          "forceUpdateTag": "[parameters('utcValue')]",
+          "AzCliVersion": "2.2.0",
+          "timeout": "PT10M",
+          "environmentVariables": [],
+          "arguments": "[concat(reference(resourceId('Microsoft.Web/serverfarms', 'centralhosting'), '2021-02-01', 'Full').sku.tier, ' ' , resourcegroup().name)]",
+          "scriptContent": "inputvalue='{\"user\":\"';  inputvalue3='\",\"excercise\":\"1506\",\"answer\":\"Basic\"}'; totalinput=$inputvalue$2$inputvalue3;  curl --request POST  --url 'https://prod-90.westeurope.logic.azure.com:443/workflows/16f7a1959a4d49bfb92fbd5cf47d15d7/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=z6MQyHFqgjKECDv15pZsWE0vXQJq2U4r_gYt94kru_4'  --header 'content-type: application/json' --data $totalinput",
+          "cleanupPreference": "Always",
+          "retentionInterval": "PT1H"
+      }
+  }
+  ]
+         
+  }
