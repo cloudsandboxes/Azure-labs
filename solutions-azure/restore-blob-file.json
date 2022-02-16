@@ -39,7 +39,7 @@
                   {
       "type": "Microsoft.Resources/deploymentScripts",
       "apiVersion": "2020-10-01",
-      "name": "You_were_successfull.We_are_updating_your_score",
+      "name": "You_are_successfull.We_are_updating_your_score",
       "location": "[resourceGroup().location]",
       "kind": "AzureCLI",
       "dependsOn": [ "['Microsoft.Resources/deploymentScripts/We_are_checking_your_solution.When_incorrect_a_hint_is_in_the_error_message']"],
@@ -49,7 +49,7 @@
           "timeout": "PT10M",
           "environmentVariables": [],
           "arguments": "[concat(variables('storageAccountName'), ' ', variables('containerName'), ' ', resourcegroup().name)]",
-          "scriptContent": "inputvalue='{\"user\":\"';  inputvalue3='\",\"excercise\":\"upload-blob-file\",\"answer\":\"89\"}'; totalinput=$inputvalue$3$inputvalue3;  curl --request POST  --url 'https://prod-90.westeurope.logic.azure.com:443/workflows/16f7a1959a4d49bfb92fbd5cf47d15d7/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=z6MQyHFqgjKECDv15pZsWE0vXQJq2U4r_gYt94kru_4'  --header 'content-type: application/json' --data $totalinput",
+          "scriptContent": "inputvalue='{\"user\":\"';  inputvalue3='\",\"excercise\":\"1504\",\"answer\":\"89\"}'; totalinput=$inputvalue$3$inputvalue3;  curl --request POST  --url 'https://prod-90.westeurope.logic.azure.com:443/workflows/16f7a1959a4d49bfb92fbd5cf47d15d7/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=z6MQyHFqgjKECDv15pZsWE0vXQJq2U4r_gYt94kru_4'  --header 'content-type: application/json' --data $totalinput",
           "cleanupPreference": "Always",
           "retentionInterval": "PT1H"
       }
