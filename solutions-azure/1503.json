@@ -1,0 +1,56 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+      "parameters": {
+		        "utcValue":  {
+                "type": "string",
+                "defaultValue": "[utcNow()]"
+      },
+	  		"networkSecurityGroupName":  {
+                "type": "string",
+				"defaultValue": "",
+                "metadata": {
+      "description": "To solve this assignment you need to create and attach an NSG to the subnet to bypass the default Microsoft firewall"
+    }
+      }
+    },
+    "variables": {
+    },
+	"resources":[	   
+					{
+      "type": "Microsoft.Resources/deploymentScripts",
+      "apiVersion": "2020-10-01",
+      "name": "We_are_checking_your_solution.When_incorrect_a_hint_is_in_the_error_message",
+      "location": "[resourceGroup().location]",
+      "kind": "AzureCLI",
+      "properties": {
+          "forceUpdateTag": "[parameters('utcValue')]",
+          "AzCliVersion": "2.2.0",
+          "timeout": "PT10M",
+          "arguments": "[concat(if(empty(parameters('networkSecurityGroupName')), 'False', 'True'), ' ', reference(resourceid('Microsoft.Network/publicIPAddresses', 'publicaccess-pip'), '2020-08-01').ipAddress)]",
+          "scriptContent": "if [ $1 == 'True' ] ; then echo 'You have correctly solved the assignment'; else 'Hint: Public IP addresses with Standard SKU are secure by a default model and are closed to inbound traffic when used as a frontend. Allow traffic with network security group (NSG) is required https://docs.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses#sku . Create an NSG, and attach it to a Subnet or NIC. During the check solution deployment fill in the NSG name as parameter'; exit 1; fi",
+          "cleanupPreference": "Always",
+          "retentionInterval": "PT1H"
+      }
+  }      ,
+	
+                    {
+      "type": "Microsoft.Resources/deploymentScripts",
+      "apiVersion": "2020-10-01",
+      "name": "You_were_successfull.We_are_updating_your_score",
+      "location": "[resourceGroup().location]",
+      "kind": "AzureCLI",
+      "dependsOn": [ "['Microsoft.Resources/deploymentScripts/We_are_checking_your_solution.When_incorrect_a_hint_is_in_the_error_message']"],
+      "properties": {
+          "forceUpdateTag": "[parameters('utcValue')]",
+          "AzCliVersion": "2.2.0",
+          "timeout": "PT10M",
+          "environmentVariables": [],
+          "arguments": "[resourcegroup().name]",
+          "scriptContent": "inputvalue='{\"user\":\"';  inputvalue3='\",\"excercise\":\"1503\",\"answer\":\"NSG\"}'; totalinput=$inputvalue$1$inputvalue3;  curl --request POST  --url 'https://prod-90.westeurope.logic.azure.com:443/workflows/16f7a1959a4d49bfb92fbd5cf47d15d7/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=z6MQyHFqgjKECDv15pZsWE0vXQJq2U4r_gYt94kru_4'  --header 'content-type: application/json' --data $totalinput",
+          "cleanupPreference": "Always",
+          "retentionInterval": "PT1H"
+      }
+  }
+  ]
+}
