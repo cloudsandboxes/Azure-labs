@@ -92,7 +92,7 @@
             "properties": {
                 "publicIPallocationmethod": "Static",
                 "dnsSettings": {
-                    "domainNameLabel": "[toLower('unreachable')]"
+                    "domainNameLabel": "[toLower(substring(uniqueString(resourceGroup().id),0,10))]"
                 }
             }
         },
