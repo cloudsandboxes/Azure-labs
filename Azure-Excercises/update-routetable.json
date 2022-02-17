@@ -7,7 +7,7 @@
             "type": "String"
         },
         "password": {
-            "type": "String"
+            "type": "secureString"
         }
     },
     "variables": {
@@ -19,7 +19,7 @@
 		"nicname1" : "savevm286",
 		"vnetname" : "newvnet",
 		"routetable" : "route2firewall",
-	        "details": "Two vms are running in Azure and traffic between the two should be blocked by the routetable. Although in practice traffic between the two is able to happen. Could you configure the routetable rule <<drop_direct_traffic>> so it blocks the traffic? Details:  This situation happens in a two tier netwerk design where traffic is forwarded to a central firewall, due to bad configuration hackers could bypass the firewall. For example an RDP session to savevm (10.1.0.12) from the hackedvm is now possible."
+	        "details": "Two vms are running in Azure and traffic between the two should be blocked by the routetable. Although in practice an RDP session to the vm named savevm (10.1.0.12) from the vm named <hackedvm> is possible. Could you configure the routetable rule so it blocks this traffic as intended?                            Considerations: Do not change the name of the rule <<drop_direct_traffic>>.                         Completed? Check your solution by deploying the solution template from our GitHub page. You will be rewarded with points in case you solved it correctly. Else a hint will be displayed for you in the error message"
 
 
 
@@ -28,7 +28,7 @@
 	                	  {
       "type": "Microsoft.Web/customApis",
       "apiVersion": "2016-06-01",
-      "name": "1_Task_Description_update_routetable",
+      "name": ".Click_here_to_read_the_assignment",
       "location": "[resourceGroup().location]",
       "tags": {},
       "properties": {
