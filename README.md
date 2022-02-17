@@ -45,7 +45,7 @@
 |<strong>Task:</strong> The traffic in a two tier netwerk design should be blocked due to the routetable rule "drop_direct_traffic". Although setting up an rdp session to savevm (10.1.0.12) from the hackedvm is still possible. Could you update the routetable so traffic between the subnets is blocked?  |
 |<strong>Difficulty:</strong> <img src="/dashboard-files/2-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Windows, Route Table, routing, NSG, Vnet, Microsoft Backbone|
-|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FAzure-Excercises%2Fupdate-routetable.json)|
+|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FAzure-Excercises%2Fupdate-routetable.json)  &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  <a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fsolutions-azure%2F1505.json' target='_blank'> <img src='/dashboard-files/check-opdracht.png' width="167"></a>|
 >
 ----
 >
