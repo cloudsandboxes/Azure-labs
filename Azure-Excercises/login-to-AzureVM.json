@@ -40,9 +40,9 @@
         "linuxSku": "12.04.5-LTS",
         "linuxPublisher": "Canonical",
         "vNicName": "[concat(parameters('platform'), '-', 'nic')]",
-        "pNicName": "[concat(parameters('platform'), '-', 'pip')]",
+        "pNicName": "publicaccess-pip",
         "vmName": "unreachable",
-	"details": "A Vm is running in Azure, although connecting via SSH/RDP fails. Could you enable the SSH/RDP login? "
+	"details": "A Vm with public endpoint is created, although connecting via SSH/RDP over the internet is impossible. Could you enable the SSH/RDP login?                      Check your solution by deploying the solution template from our GitHub page. You will be rewarded with points in case you solved it correctly. Else a hint will be displayed for you in the error message"
     },
     "resources": [
 	            	  {
