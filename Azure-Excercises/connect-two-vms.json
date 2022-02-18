@@ -343,6 +343,52 @@
                     "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsg'))]"
                 }
             }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(variables('vnetnameblue'), '/connectbluetored')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetnameblue'), 'bluesubnet')]",
+		 "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetnamered'), 'redsubnet')]"
+            ],
+            "properties": {
+                "remoteVirtualNetwork": {
+                    "id": "[resourceid('Microsoft.Network/virtualNetworks', variables('vnetnamered'))]"
+                },
+                "allowVirtualNetworkAccess": false,
+                "allowForwardedTraffic": false,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.1.0.0/24"
+                    ]
+                }
+            }
+        },
+	     {
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(variables('vnetnamered'), '/connectredtoblue')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetnameblue'), 'bluesubnet')]",
+		 "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetnamered'), 'redsubnet')]"
+            ],
+            "properties": {
+                "remoteVirtualNetwork": {
+                    "id": "[resourceid('Microsoft.Network/virtualNetworks', variables('vnetnameblue'))]"
+                },
+                "allowVirtualNetworkAccess": false,
+                "allowForwardedTraffic": false,
+                "allowGatewayTransit": false,
+                "useRemoteGateways": false,
+                "remoteAddressSpace": {
+                    "addressPrefixes": [
+                        "10.2.0.0/24"
+                    ]
+                }
+            }
         }
     ]
 }
