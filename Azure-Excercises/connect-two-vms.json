@@ -7,7 +7,7 @@
             "type": "String"
         },
         "password": {
-            "type": "String"
+            "type": "securestring"
         }
     },
     "variables": {
@@ -19,7 +19,7 @@
 		"nicname1" : "bluevm286",
 		"vnetnameblue" : "vnetblue",
 		"vnetnamered" : "vnetred",
-	        "details": "Two VMs containing an application are running on Azure. Only establishing a connection between them doesn't work. Could you setup a working connection?   An rdp session between the vm (10.1.0.6) and the vm (10.2.0.6) should work?"
+	        "details": "Two VMs are running on Azure. Only there is no connectivity between the two VMs possible. Could you setup a working connection?                          Considerations: An rdp session between the vm (10.1.0.6) and the vm (10.2.0.6) should be enabled.                            Completed? Check your solution by deploying the solution template from our GitHub page. You will be rewarded with points in case you solved it correctly. Else a hint will be displayed for you in the error message"  
 
 
 
@@ -28,7 +28,7 @@
 	        	  {
       "type": "Microsoft.Web/customApis",
       "apiVersion": "2016-06-01",
-      "name": "1_Task_Description_connect-two-vms",
+      "name": "1_Click_here_to_read_the_assignment",
       "location": "[resourceGroup().location]",
       "tags": {},
       "properties": {
