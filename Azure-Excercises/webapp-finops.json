@@ -20,7 +20,7 @@
 		"webapp13":  "[concat('webapp13', substring(uniqueString(resourceGroup().id),0,6))]",
 		"webapp14":  "[concat('webapp14', substring(uniqueString(resourceGroup().id),0,6))]",
 		"webapp15":  "[concat('webapp15', substring(uniqueString(resourceGroup().id),0,6))]",
-	        "details" : " In Azure an application is distributed among 15 webapps. The costs are too high, Could you configure the Azure architecture to reduce the bill by 50%?  Details: This situation happens when a development team is using microservices." 
+	        "details" : " In Azure an application is distributed among 15 webapps. The costs are too high, could you configure the Azure architecture to reduce the bill by 50%?  _______________________________________________________________________________________________________________________________________________________________________________________________________________________________________  Considerations: The 15 webapps are needed, requiring each a custom domain name. _______________________________________________________________________________________________________________________________________________________________________________________________________________________________________ Completed? Check your solution by deploying the solution template from our GitHub page. You will be rewarded with points in case you solved it correctly. Else a hint will be displayed for you in the error message" 
 	},
     "resources": [
 	    	                	  {
