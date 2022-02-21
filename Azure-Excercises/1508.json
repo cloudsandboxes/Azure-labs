@@ -1,0 +1,117 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+    },
+    "variables": {
+		"factoryName": "[concat('adf', substring(uniqueString(resourceGroup().id),0,6))]",
+        "factoryId": "[concat('Microsoft.DataFactory/factories/', variables('factoryName'))]",
+		"details" : "🎓 In Azure a Data Factory pipeline is retrieving the Bitcoin value. Only the pipeline does not function, could you solve the failing pipeline? ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________  🚩 Do not change the name of the datafactory, pipeline or activity. ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________ ✅ Check your solution by deploying the solution template from our GitHub page. You will be rewarded with points in case you solved it correctly. Else a hint will be displayed for you in the error message" 
+	
+    },
+    "resources": [
+		{
+	 "type": "Microsoft.Web/customApis",
+      "apiVersion": "2016-06-01",
+      "name": ".Click_here_to_read_the_assignment",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+        "description": "[variables('details')]",
+	"displayName": "logicappplayname",
+	"iconUri": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADYYG7QAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAQHSURBVFhH7ZfNa9RAGIfzZ3jRixeLSKFe/BfEDyqtaLX1W29CRUGx1mrBg1IFQQ8KgqB4EDz0YgWtl968FATxJh4Fd5PsJvuRZHdff7Pv7JLdTDKT7haK9CEsSzKZ95l33pkkFm0xtoV0/C9CzWazXq9XKpVyuVwqlVzXxa/nedVqNQzDVqsl2+UnnxAi1Wo1hLfbOCr4EkRhJm/LQw4hjJ6DcWBopcEN0BL/gyCQ95thJISxcgD8ckhD0L5YLGI2zSdRL4RCKRQKeVXisJbhDGqEUKec+cHBqEycsoSGaMPAKYoi2XsKqUJYTcO1YTB32DJkDBVqoUajgdHIPoYKLw4ZRoVaCLcB2cewgRB2EBkpgUIIW/BmTFYXDBUTl7YRKITypcdxyyUnqOTen7CbyHi99AthYzVPD7QrnlP2nJeffaIcSYVQWpL6hfAMMk+PX3aiwN5xtWkdpNnXNaKieMyagWErnyr9QmhnJOS4XsmhZnHXtaY1Q9YVsibo9juUKvJkNB5EweBl1Bg9Qti1DOcLdYN87Jzt2PAxQYvv204mI2ojA8foEcJmiEbyjnREbsjefaNhTcds+DhGDz6YOmHwyTLqEULla4XaubHH5iPrdMKGj3F69tGnlt4JQsmnW4+QvqIdl6hw4F5kTSU84sc4vfoinLI7U9Z1jxBeXDKEcAV1MzLXsE4kDJLHYXqx6rfqWU4QwiYsY3cwzRDO1nxn+Zs387A+cqthXewEPk/Cj4/LnZNnaXIpmFis2yWnlD5zeiG8b2RlyHWrnlhc0y/rCCkCX6DR+ejRSuX+cmVpxReW7DRJ67+wpO3MjBtMme/72TWEi9S0J58HUugsnXyGHm2qC1GRrUvt88dp7YeHjGZ2JoSSr0c9QtrHalJo4mmAM7hEgW2d6xfiu9JALM2y126M/ULnEkI8ZQZCnD0ZOEaPEIBQVhm1hQ49CcSyh9MUHXkcEzpF1hlhaR2l1e96IZSsjBqjX0hT144bVp23a/6em9H+hXDvXHT9TY1C0b5Rs0fvhGN3o7GFaN9c+Oev2EL5LiVp3yH9QmiknbWgKjZreYRip+HI2Am75/F4SR+XSA+QITsEDfpdSAiB7O0RCIPYIU+mnFeC/pNvsV9/0qd1lZA2SQMCG/Qvg8XgBacQAtokDQJs8FohIyVQC2F72LzPIPzKMCrUQgATN3SntMmKkyoEkFgsTtnZwMBG+9kKsoQA1sJQnNgGH8Sy33Q0QgAPZPQ1SI1jmnC7NjeMXgigxrHuNqDFiUn7JlRiJMQgVYjBw2U4ah98Cc2ggjc+w8R0ySHEQItfmxAyLgf4DIAWspJXhckt1AUVivcnVD1iM1iV0N2YR5eNC20S20I6tpgQ0T9aMGVDfDT/AQAAAABJRU5ErkJggg==",
+        "backendService": {
+          "serviceurl": "http://cloudsandboxes.nl"
+        }
+      }
+    }, 
+		    {
+      "type": "Microsoft.DataFactory/factories",
+      "apiVersion": "2018-06-01",
+      "name": "[variables('factoryName')]",
+      "location": "[resourcegroup().location]",
+      "identity": {
+        "type": "SystemAssigned"
+      }
+    },
+        {
+            "name": "[concat(variables('factoryName'), '/AutoResolvelntegratrionRuntime')]",
+            "type": "Microsoft.DataFactory/factories/integrationRuntimes",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "type": "SelfHosted",
+                "description": "fake",
+                "typeProperties": {}
+            },
+            "dependsOn": ["[variables('factoryId')]"]
+        },
+        {
+            "name": "[concat(variables('factoryName'), '/bitcoinvalue')]",
+            "type": "Microsoft.DataFactory/factories/pipelines",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "activities": [
+                    {
+                        "name": "getdata",
+                        "type": "WebActivity",
+                        "dependsOn": [],
+                        "policy": {
+                            "timeout": "7.00:00:00",
+                            "retry": 0,
+                            "retryIntervalInSeconds": 30,
+                            "secureOutput": false,
+                            "secureInput": false
+                        },
+                        "userProperties": [],
+                        "typeProperties": {
+                            "url": "https://api.coindesk.com/v1/bpi/currentprice.json",
+                            "method": "GET",
+							"connectVia": {
+                                "referenceName": "AutoResolvelntegratrionRuntime",
+                                "type": "IntegrationRuntimeReference"
+                            },
+                            "headers": {}
+                        }
+                    }
+                ],
+                "policy": {
+                    "elapsedTimeMetric": {},
+                    "cancelAfter": {}
+                },
+                "annotations": []
+            },
+            "dependsOn": ["[concat(variables('factoryId'), '/integrationRuntimes/AutoResolvelntegratrionRuntime')]"]
+        },
+		 {
+            "name": "[concat(variables('factoryName'), '/trigger1')]",
+            "type": "Microsoft.DataFactory/factories/triggers",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "description": "get blockchain data",
+                "annotations": [],
+                "runtimeState": "Started",
+                "pipelines": [
+                    {
+                        "pipelineReference": {
+                            "referenceName": "bitcoinvalue",
+                            "type": "PipelineReference"
+                        },
+                        "parameters": {}
+                    }
+                ],
+                "type": "ScheduleTrigger",
+                "typeProperties": {
+                    "recurrence": {
+                        "frequency": "Minute",
+                        "interval": 5,
+                        "startTime": "2022-02-21T16:22:00Z",
+                        "timeZone": "UTC"
+                    }
+                }
+            },
+            "dependsOn": [
+                "[concat(variables('factoryId'), '/pipelines/bitcoinvalue')]"
+            ]
+        }
+    ]
+}
