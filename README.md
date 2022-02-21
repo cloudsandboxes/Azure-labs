@@ -81,12 +81,20 @@
 >   
  ----
 >
-
+| 1507 Azure SQL architecture |
+|:---|
+|<strong>Task:</strong> In Azure a SQL server with two databases is present. The costs are higher than budgeted while the performance is lower, could you configure the Azure architecture to optimize costs and performance? |
+|<strong>Difficulty:</strong> <img src="/dashboard-files/2-star-rating.png" alt="difficulty" width="100"/>|
+|<strong>Azure resources:</strong> Azure SQL database, Azure Elastic Pool, Azure SQL Server, Azure cost management, Cloud FinOps|
+|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FAzure-Excercises%2F1507.json)  &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  <a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fsolutions-azure%2F1507.json' target='_blank'> <img src='/dashboard-files/check-opdracht.png' width="167"></a> |
+>
+----
+>
 
 | **Azure Data Factory pipeline failure** *(under construction)* |
 |:---|
 |<strong>Task:</strong> A datafactory pipeline suddenly fails, normally it was running, nothing changed according to the development team, could you fix the issue? |
-|<strong>Difficulty:</strong> <img src="/dashboard-files/3-star-rating.png" alt="difficulty" width="100" height="34"/>|
+|<strong>Difficulty:</strong> <img src="/dashboard-files/3-star-rating.png" alt="difficulty" width="100" />|
 |<strong>Azure resources:</strong> Azure data factory, Azure blob storage, Azure sql|
 |[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FEnableBrowsingSimple.yml)|
 >
