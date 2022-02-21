@@ -91,12 +91,12 @@
 ----
 >
 
-| **Azure Data Factory pipeline failure** *(under construction)* |
+| 1508 Bitcoin value in Azure Data Factory |
 |:---|
-|<strong>Task:</strong> A datafactory pipeline suddenly fails, normally it was running, nothing changed according to the development team, could you fix the issue? |
+|<strong>Task:</strong> In Azure a Data Factory pipeline is retrieving the Bitcoin value. Only the pipeline does not function, could you solve the failing pipeline?  |
 |<strong>Difficulty:</strong> <img src="/dashboard-files/3-star-rating.png" alt="difficulty" width="100" />|
-|<strong>Azure resources:</strong> Azure data factory, Azure blob storage, Azure sql|
-|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FEnableBrowsingSimple.yml)|
+|<strong>Azure resources:</strong> Azure Data Factory|
+|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FAzure-Excercises%2F1508.json)  &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  <a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fsolutions-azure%2F1508.json' target='_blank'> <img src='/dashboard-files/check-opdracht.png' width="167"></a> |
 >
 ----
 
