@@ -42,7 +42,7 @@
           "AzCliVersion": "2.2.0",
           "timeout": "PT10M",
           "environmentVariables": [],
-          "arguments": "[concat('bla', ' ', 'resourcegroup90.name')]",
+          "arguments": "[concat('bla', ' ', resourcegroup().name)]",
           "scriptContent": "inputvalue='{\"user\":\"';  inputvalue3='\",\"excercise\":\"1508\",\"answer\":\"AutoResolveIntegratrionRuntime\"}'; totalinput=$inputvalue$2$inputvalue3;  curl --request POST  --url 'https://prod-90.westeurope.logic.azure.com:443/workflows/16f7a1959a4d49bfb92fbd5cf47d15d7/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=z6MQyHFqgjKECDv15pZsWE0vXQJq2U4r_gYt94kru_4'  --header 'content-type: application/json' --data $totalinput",
           "cleanupPreference": "Always",
           "retentionInterval": "PT1H"
