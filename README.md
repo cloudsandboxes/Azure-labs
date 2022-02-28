@@ -15,7 +15,7 @@
 |<strong>Task:</strong> A webapp is configured in Azure, although in the Azure portal the “Advanced Tools” feature from the Webapp resource is not available.  Could you enable this feature?    |
 |<strong>Difficulty:</strong> <img src="/dashboard-files/2-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Webapp, VNET, NSG, Routing, Microsoft Backbone, KUDU|
-|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fazure-excercises%2F1501.json)|
+|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fazure-excercises%2F1501.json) &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  <a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fsolutions-azure%2F1501.json' target='_blank'> <img src='/dashboard-files/check-opdracht.png' width="167"></a>|
 
 >
 ----
