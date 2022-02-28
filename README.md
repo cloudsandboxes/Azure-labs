@@ -10,12 +10,12 @@
 >
 
 
-|1501 Don't ever restart the VM |
+|1501 Troubleshoot help |
 |:---|
-|<strong>Task:</strong> A Linux Vm runs in Azure, you can execute a curl request succesfully like *curl -Is https://cloudsandboxes.nl \| head -n 1*. Only after a restart of the VM the curl command doesn't work anymore. It seems like a routing issue. Could you solve this issue for this development team? Restart the VM to experience their problem.  |
-|<strong>Difficulty:</strong> <img src="/dashboard-files/5-star-rating.png" alt="difficulty" width="100"/>|
-|<strong>Azure resources:</strong> Ubuntu VM, NSG, Vnet, routing table, Microsoft Backbone|
-|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fazure-excercises%2FUnable-to-reboot-vm.json)|
+|<strong>Task:</strong> A webapp is configured in Azure, although in the Azure portal the “Advanced Tools” feature from the Webapp resource is not available.  Could you enable this feature?    |
+|<strong>Difficulty:</strong> <img src="/dashboard-files/2-star-rating.png" alt="difficulty" width="100"/>|
+|<strong>Azure resources:</strong> Webapp, VNET, NSG, Routing, Microsoft Backbone, KUDU|
+|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fazure-excercises%2F1501.json)|
 
 >
 ----
@@ -46,6 +46,15 @@
 |<strong>Difficulty:</strong> <img src="/dashboard-files/2-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Windows, Route Table, routing, NSG, Vnet, Microsoft Backbone|
 |[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FAzure-Excercises%2Fupdate-routetable.json)  &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  <a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fsolutions-azure%2F1505.json' target='_blank'> <img src='/dashboard-files/check-opdracht.png' width="167"></a>|
+>
+----
+>
+|1509 Don't ever restart the VM |
+|:---|
+|<strong>Task:</strong> A Linux Vm runs in Azure, you can execute a curl request succesfully like *curl -Is https://cloudsandboxes.nl \| head -n 1*. Only after a restart of the VM the curl command doesn't work anymore. It seems like a routing issue. Could you solve this issue for this development team? Restart the VM to experience their problem.  |
+|<strong>Difficulty:</strong> <img src="/dashboard-files/5-star-rating.png" alt="difficulty" width="100"/>|
+|<strong>Azure resources:</strong> Ubuntu VM, NSG, Vnet, routing table, Microsoft Backbone|
+|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fazure-excercises%2FUnable-to-reboot-vm.json)|
 >
 ----
 >
