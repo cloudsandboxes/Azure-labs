@@ -1,0 +1,373 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {	"serverfarm": "centralapp",
+					"webapp1":  "[concat('kudu', substring(uniqueString(resourceGroup().id),0,6))]",
+					"vnet": "virtualnetwerk",
+					"nsgname":"blockinternet",
+          "details": "🎓 A webapp is configured in Azure, although in the Azure portal the “Advanced Tools” feature from the Webapp resource is not available.  Could you enable this feature?   ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________  🚩 Do not change the name of the webapp. ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________ ✅ Check your solution by deploying the solution template from our GitHub page. You will be rewarded with points in case you solved it correctly. Else a hint will be displayed for you in the error message"
+					},
+    "resources": [
+      		{
+	 "type": "Microsoft.Web/customApis",
+      "apiVersion": "2016-06-01",
+      "name": ".Click_here_to_read_the_assignment",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+        "description": "[variables('details')]",
+	"displayName": "logicappplayname",
+	"iconUri": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADYYG7QAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAQHSURBVFhH7ZfNa9RAGIfzZ3jRixeLSKFe/BfEDyqtaLX1W29CRUGx1mrBg1IFQQ8KgqB4EDz0YgWtl968FATxJh4Fd5PsJvuRZHdff7Pv7JLdTDKT7haK9CEsSzKZ95l33pkkFm0xtoV0/C9CzWazXq9XKpVyuVwqlVzXxa/nedVqNQzDVqsl2+UnnxAi1Wo1hLfbOCr4EkRhJm/LQw4hjJ6DcWBopcEN0BL/gyCQ95thJISxcgD8ckhD0L5YLGI2zSdRL4RCKRQKeVXisJbhDGqEUKec+cHBqEycsoSGaMPAKYoi2XsKqUJYTcO1YTB32DJkDBVqoUajgdHIPoYKLw4ZRoVaCLcB2cewgRB2EBkpgUIIW/BmTFYXDBUTl7YRKITypcdxyyUnqOTen7CbyHi99AthYzVPD7QrnlP2nJeffaIcSYVQWpL6hfAMMk+PX3aiwN5xtWkdpNnXNaKieMyagWErnyr9QmhnJOS4XsmhZnHXtaY1Q9YVsibo9juUKvJkNB5EweBl1Bg9Qti1DOcLdYN87Jzt2PAxQYvv204mI2ojA8foEcJmiEbyjnREbsjefaNhTcds+DhGDz6YOmHwyTLqEULla4XaubHH5iPrdMKGj3F69tGnlt4JQsmnW4+QvqIdl6hw4F5kTSU84sc4vfoinLI7U9Z1jxBeXDKEcAV1MzLXsE4kDJLHYXqx6rfqWU4QwiYsY3cwzRDO1nxn+Zs387A+cqthXewEPk/Cj4/LnZNnaXIpmFis2yWnlD5zeiG8b2RlyHWrnlhc0y/rCCkCX6DR+ejRSuX+cmVpxReW7DRJ67+wpO3MjBtMme/72TWEi9S0J58HUugsnXyGHm2qC1GRrUvt88dp7YeHjGZ2JoSSr0c9QtrHalJo4mmAM7hEgW2d6xfiu9JALM2y126M/ULnEkI8ZQZCnD0ZOEaPEIBQVhm1hQ49CcSyh9MUHXkcEzpF1hlhaR2l1e96IZSsjBqjX0hT144bVp23a/6em9H+hXDvXHT9TY1C0b5Rs0fvhGN3o7GFaN9c+Oev2EL5LiVp3yH9QmiknbWgKjZreYRip+HI2Am75/F4SR+XSA+QITsEDfpdSAiB7O0RCIPYIU+mnFeC/pNvsV9/0qd1lZA2SQMCG/Qvg8XgBacQAtokDQJs8FohIyVQC2F72LzPIPzKMCrUQgATN3SntMmKkyoEkFgsTtnZwMBG+9kKsoQA1sJQnNgGH8Sy33Q0QgAPZPQ1SI1jmnC7NjeMXgigxrHuNqDFiUn7JlRiJMQgVYjBw2U4ah98Cc2ggjc+w8R0ySHEQItfmxAyLgf4DIAWspJXhckt1AUVivcnVD1iM1iV0N2YR5eNC20S20I6tpgQ0T9aMGVDfDT/AQAAAABJRU5ErkJggg==",
+        "backendService": {
+          "serviceurl": "http://cloudsandboxes.nl"
+        }
+      }
+    }, 
+        {
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "apiVersion": "2020-11-01",
+            "name": "[variables('nsgname')]",
+            "location": "westeurope",
+            "properties": {
+                "securityRules": [
+                    {
+                        "name": "deny-alltraffic",
+                        "properties": {
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 100,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "denyalltraffic",
+                        "properties": {
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 110,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.Web/serverfarms",
+            "apiVersion": "2021-03-01",
+            "name": "[variables('serverfarm')]",
+            "location": "West Europe",
+            "sku": {
+                "name": "S1",
+                "tier": "Standard",
+                "size": "S1",
+                "family": "S",
+                "capacity": 1
+            },
+            "kind": "app",
+            "properties": {
+                "perSiteScaling": false,
+                "elasticScaleEnabled": false,
+                "maximumElasticWorkerCount": 1,
+                "isSpot": false,
+                "reserved": false,
+                "isXenon": false,
+                "hyperV": false,
+                "targetWorkerCount": 0,
+                "targetWorkerSizeId": 0,
+                "zoneRedundant": false
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(variables('nsgname'), '/denyalltraffic')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgname'))]"
+            ],
+            "properties": {
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "*",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Deny",
+                "priority": 110,
+                "direction": "Outbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(variables('nsgname'), '/deny-alltraffic')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgname'))]"
+            ],
+            "properties": {
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "*",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Deny",
+                "priority": 100,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks",
+            "apiVersion": "2020-11-01",
+            "name": "[variables('vnet')]",
+            "location": "westeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgname'))]"
+            ],
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "10.0.0.0/16"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "default",
+                        "properties": {
+                            "addressPrefix": "10.0.0.0/24",
+                            "networkSecurityGroup": {
+                                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgname'))]"
+                            },
+                            "delegations": [
+                                {
+                                    "name": "delegation",
+                                    "properties": {
+                                        "serviceName": "Microsoft.Web/serverfarms"
+                                    }
+                                }
+                            ],
+                            "privateEndpointNetworkPolicies": "Enabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled"
+                        }
+                    }
+                ],
+                "virtualNetworkPeerings": [],
+                "enableDdosProtection": false
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites/config",
+            "apiVersion": "2021-03-01",
+            "name": "[concat(variables('webapp1'), '/web')]",
+            "location": "West Europe",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', variables('webapp1'))]"
+            ],
+            "properties": {
+                "numberOfWorkers": 1,
+                "defaultDocuments": [
+                    "Default.htm",
+                    "Default.html",
+                    "Default.asp",
+                    "index.htm",
+                    "index.html",
+                    "iisstart.htm",
+                    "default.aspx",
+                    "index.php",
+                    "hostingstart.html"
+                ],
+                "netFrameworkVersion": "v6.0",
+                "requestTracingEnabled": false,
+                "remoteDebuggingEnabled": false,
+                "remoteDebuggingVersion": "VS2019",
+                "httpLoggingEnabled": false,
+                "acrUseManagedIdentityCreds": false,
+                "logsDirectorySizeLimit": 35,
+                "detailedErrorLoggingEnabled": false,
+                "publishingUsername": "$sfdfdsdf",
+                "scmType": "None",
+                "use32BitWorkerProcess": true,
+                "webSocketsEnabled": false,
+                "alwaysOn": true,
+                "managedPipelineMode": "Integrated",
+                "virtualApplications": [
+                    {
+                        "virtualPath": "/",
+                        "physicalPath": "site\\wwwroot",
+                        "preloadEnabled": true
+                    }
+                ],
+                "loadBalancing": "LeastRequests",
+                "experiments": {
+                    "rampUpRules": []
+                },
+                "autoHealEnabled": false,
+                "vnetName": "db32ac14-c899-4561-9768-a3f9ba0e3f56_default",
+                "vnetRouteAllEnabled": true,
+                "vnetPrivatePortsCount": 0,
+                "localMySqlEnabled": false,
+                "ipSecurityRestrictions": [
+                    {
+                        "ipAddress": "Any",
+                        "action": "Allow",
+                        "priority": 1,
+                        "name": "Allow all",
+                        "description": "Allow all access"
+                    }
+                ],
+                "scmIpSecurityRestrictions": [
+                    {
+                        "ipAddress": "0.0.0.0/0",
+                        "action": "Deny",
+                        "tag": "Default",
+                        "priority": 100,
+                        "name": "Allow",
+                        "description": "dffd"
+                    },
+                    {
+                        "ipAddress": "Any",
+                        "action": "Deny",
+                        "priority": 2147483647,
+                        "name": "Deny all",
+                        "description": "Deny all access"
+                    }
+                ],
+                "scmIpSecurityRestrictionsUseMain": false,
+                "http20Enabled": false,
+                "minTlsVersion": "1.2",
+                "scmMinTlsVersion": "1.0",
+                "ftpsState": "AllAllowed",
+                "preWarmedInstanceCount": 0,
+                "functionAppScaleLimit": 0,
+                "functionsRuntimeScaleMonitoringEnabled": false,
+                "minimumElasticInstanceCount": 0,
+                "azureStorageAccounts": {}
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites/hostNameBindings",
+            "apiVersion": "2021-03-01",
+            "name": "[concat(variables('webapp1'), '/', variables('webapp1'), '.azurewebsites.net')]",
+            "location": "West Europe",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', variables('webapp1'))]"
+            ],
+            "properties": {
+                "siteName": "[variables('webapp1')]",
+                "hostNameType": "Verified"
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "apiVersion": "2020-11-01",
+            "name": "[concat(variables('vnet'), '/default')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', variables('vnet'))]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgname'))]"
+            ],
+            "properties": {
+                "addressPrefix": "10.0.0.0/24",
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgname'))]"
+                },
+                "delegations": [
+                    {
+                        "name": "delegation",
+                        "properties": {
+                            "serviceName": "Microsoft.Web/serverfarms"
+                        }
+                    }
+                ],
+                "privateEndpointNetworkPolicies": "Enabled",
+                "privateLinkServiceNetworkPolicies": "Enabled"
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2021-03-01",
+            "name": "[variables('webapp1')]",
+            "location": "West Europe",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', variables('serverfarm'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnet'), 'default')]"
+            ],
+            "kind": "app",
+            "properties": {
+                "enabled": true,
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(variables('webapp1'), '.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "hostType": "Standard"
+                    },
+                    {
+                        "name": "[concat(variables('webapp1'), '.scm.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "hostType": "Repository"
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('serverfarm'))]",
+                "reserved": false,
+                "isXenon": false,
+                "hyperV": false,
+                "siteConfig": {
+                    "numberOfWorkers": 1,
+                    "acrUseManagedIdentityCreds": false,
+                    "alwaysOn": true,
+                    "http20Enabled": false,
+                    "functionAppScaleLimit": 0,
+                    "minimumElasticInstanceCount": 0
+                },
+                "scmSiteAlsoStopped": false,
+                "clientAffinityEnabled": true,
+                "clientCertEnabled": false,
+                "clientCertMode": "Required",
+                "hostNamesDisabled": false,
+                "customDomainVerificationId": "AD3CC27C837FAF4EDEC6AFDE2A4B29AC49D218E42C379B2559FEE191D6D426DF",
+                "containerSize": 0,
+                "dailyMemoryTimeQuota": 0,
+                "httpsOnly": true,
+                "redundancyMode": "None",
+                "storageAccountRequired": false,
+                "virtualNetworkSubnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnet'), 'default')]",
+                "keyVaultReferenceIdentity": "SystemAssigned"
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites/virtualNetworkConnections",
+            "apiVersion": "2021-03-01",
+            "name": "[concat(variables('webapp1'), '/db32ac14-c899-4561-9768-a3f9ba0e3f56_default')]",
+            "location": "West Europe",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', variables('webapp1'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnet'), 'default')]"
+            ],
+            "properties": {
+                "vnetResourceId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnet'), 'default')]",
+                "isSwift": true
+            }
+        }
+    ]
+}
