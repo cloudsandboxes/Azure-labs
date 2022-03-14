@@ -58,6 +58,16 @@
 >
 ----
 >
+|1511 Troubleshoot RDP session |
+|:---|
+|<strong>Task:</strong> A Windows VM runs in Azure, only the customer changed the IP address to a static IP address inside the Virtual Machine, thereby breaking the RDP connection. Could you reconfigure the RDP connection? |
+|<strong>Difficulty:</strong> <img src="/dashboard-files/3-star-rating.png" alt="difficulty" width="100"/>|
+|<strong>Azure resources:</strong> Win Virtual Machine, Public IP address, Network Interfacing, Infra |
+|Under construction|
+
+>
+----
+> 
 
 
 # Azure Platform-as-a-Service (PaaS) excercises. 
