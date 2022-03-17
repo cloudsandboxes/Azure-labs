@@ -1,12 +1,28 @@
-# Azure hands-on excercises Library
-> This repo contains a library of Azure excercises. The excercises are grouped into 3 Cloud categories according to the Microsoft Certification structure. To track your progress order the official playground environment [here](https://cloudsandboxes.nl).
-> 
->Just choose an excercise to solve and deploy this excercise in your own playground environment. 
+# Start with our Azure hands-on excercises Library
+> This repo contains a library of hands-on Azure exercises. 
+> Just start them in your own Azure environment, and try to solve them.  
+> When you want to check your solution, we offer for a few exercise a free check.
+> For checking all exercises you need to order the offical playground [here](https://cloudsandboxes.nl/cart).
+> Besides access to all exercises and solutions, you could use our Azure dashboard.   
+> This dashboard provides an user-interface to navigate more easily through your Azure environment 
+> And it keeps track of your score.
+> For company implementations the dashboard could also be integrated with your Teams environment.
+>  
+> Lastly we also provide a feature called cleanup-functionality. This helps you to cleanup all Azure resources which are not in use anymore. This saves you costs and keeps your environment neatly and clear.
+>
+# Start your own Azure environment
+> You need to have your own Azure tenant and Azure subscription ready. You can order one for free at the Microsoft [website](https://azure.microsoft.com/en-us/free/search/). This results in your own Azure environment, with a 200$ free use in Azure credits. On top of the free use of some of the popular Azure services and the more than 40 services that are always for free.       
+>
+# Decide which Azure Exercise to start. 
+>
+>  The exercises are grouped into 3 Cloud categories according to the Microsoft Certification structure.  
+> Just choose an exercise to solve and deploy this exercise in your own Azure environment.
+> The difficulty of the exercises are marked in stars. One star means it will take about 30 min to troubleshoot and solve the exercise. Every star more will take you about 30 min more.   
 >
 
 # Azure Infrastructuur-as-a-Service (IaaS) excercises. 
 
-> <img align="right" src="https://techcommunity.microsoft.com/t5/image/serverpage/image-id/64174i7A470844233F603A?v=1.0" alt="drawing" width="300"/> Solve these excersises in line with certifications MCSA 98-349, AZ-700, AZ-900, AZ-104, AZ-500, AZ-800, SC-900, SC-200. Resource include Azure Firewall, FrontDoor, Windows, Linux, loadbalancers, application gateways, IP-adresses, netwerking, routers, traffic access, Backup and high-availability design decisions.  
+> <img align="right" src="https://techcommunity.microsoft.com/t5/image/serverpage/image-id/64174i7A470844233F603A?v=1.0" alt="drawing" width="300"/> Solve these exercises in line with certifications MCSA 98-349, AZ-700, AZ-900, AZ-104, AZ-500, AZ-800, SC-900, SC-200. Resource include Azure Firewall, FrontDoor, Windows, Linux, loadbalancers, application gateways, IP-adresses, netwerking, routers, traffic access, Backup and high-availability design decisions.  
 >
 
 
@@ -72,7 +88,7 @@
 
 # Azure Platform-as-a-Service (PaaS) excercises. 
 
-> <img align="right" src="https://th.bing.com/th/id/R.16914af340bfb1dd931f203e5f60c1a2?rik=Sx%2fBNlBD0QUS6w&riu=http%3a%2f%2finvolvenevolve.com%2fmedia%2farticulate%2fopen-live-writer-40a9655ef721_9eec-azure-website-application-highly-available-deployment-diagram_2.png&ehk=okOVpIa2%2bwVLO%2fzOGLz9KqgeIPimTJcxTfhsBAdBuCM%3d&risl=&pid=ImgRaw&r=0" alt="Azure Paas" width="300"/> Solve these excersises in line with certifications AZ-400, AZ-305, DP-900, AZ-204. Resource include Azure Webapp, Azure Logic Apps, SQL databases, Azure communication services, Notification services, Azure DevOps, Postgress database, Storage, Cache. 
+> <img align="right" src="https://th.bing.com/th/id/R.16914af340bfb1dd931f203e5f60c1a2?rik=Sx%2fBNlBD0QUS6w&riu=http%3a%2f%2finvolvenevolve.com%2fmedia%2farticulate%2fopen-live-writer-40a9655ef721_9eec-azure-website-application-highly-available-deployment-diagram_2.png&ehk=okOVpIa2%2bwVLO%2fzOGLz9KqgeIPimTJcxTfhsBAdBuCM%3d&risl=&pid=ImgRaw&r=0" alt="Azure Paas" width="300"/> Solve these exercises in line with certifications AZ-400, AZ-305, DP-900, AZ-204. Resource include Azure Webapp, Azure Logic Apps, SQL databases, Azure communication services, Notification services, Azure DevOps, Postgress database, Storage, Cache. 
 >
 
 
@@ -96,7 +112,7 @@
 
 # Azure Big data excercises
 
-> <img align="right" src="https://siteprod-s3-cdn.kyligence.io/2020/01/KC-Azure-Arch-Website.png" alt="drawing" width="300"/> Solve these excersises in line with certifications DP-300, DP-203, AI-102,DP-100, AZ-220,AI-900. Resource include Azure storage, Azure Machine learning, Databricks, IoT hub, Azure sentinel, Azure catalogue, Azure Purview, Azure DWH.
+> <img align="right" src="https://siteprod-s3-cdn.kyligence.io/2020/01/KC-Azure-Arch-Website.png" alt="drawing" width="300"/> Solve these exercises in line with certifications DP-300, DP-203, AI-102,DP-100, AZ-220,AI-900. Resource include Azure storage, Azure Machine learning, Databricks, IoT hub, Azure sentinel, Azure catalogue, Azure Purview, Azure DWH.
 >   
  ----
 >
