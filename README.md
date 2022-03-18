@@ -69,6 +69,17 @@
 |<a href='https://cloudsandboxes.nl/cart/' target='_blank'> <img src='/dashboard-files/buysolution.png' width="167"></a>|
 >
 ----
+
+>
+|1510 Prio 1, Restore infra-as-code solution |
+|:---|
+|<strong>Task:</strong> Only a storage account with a bicep file remained in this resourcegroup, because somebody accidentally deleted all the resources in this resource group. Could you restore all resources of the application from the bicep file? |
+|<strong>Difficulty:</strong> <img src="/dashboard-files/1-star-rating.png" alt="difficulty" width="100"/>|
+|<strong>Azure resources:</strong> Bicep, ARM, function app, application insights, Storage, Azure CLI |
+|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FAzure-Excercises%2F1510.json)    &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  <a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fsolutions-azure%2F1510.json' target='_blank'> <img src='/dashboard-files/check-opdracht.png' width="167"></a>
+>
+
+----
 >
 |1511 Troubleshoot RDP session |
 |:---|
