@@ -1,0 +1,141 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+		"utcValue":  {
+      		"type": "string",
+      		"defaultValue": "[utcNow()]"
+    }
+  },
+  "variables": {
+        "storageAccountName":"[concat('iacvault', substring(uniqueString(resourceGroup().id),0,6))]",
+	  "containerName": "iaccontainer",
+	  "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+	  "taskDescription": ".Click_here_to_read_the_assignment"
+  },
+  "resources": [
+	  
+	  {
+      "type": "Microsoft.Web/customApis",
+      "apiVersion": "2016-06-01",
+      "name": "[variables('taskDescription')]",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+        "description": "[concat('🎓 Only a storage account with a bicep file remained in this resourcegroup, because somebody accidentally deleted all the resources in this resource group. Could you restore all resources of the application from the bicep file?  _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________  🚩 All the resources must be named the same as listed in the bicep file. The bicep file is located in the storage accounted named: <<', variables('storageAccountName'), ' >>   ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________ ✅ Check your solution by returning to the dashboard and click <Check Solution> to validate your answer. You will be rewarded with points in case you solved it correctly. Else a hint will be displayed for you in the error message')]", 
+	"displayName": "logicappplayname",
+	"iconUri": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADYYG7QAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAQHSURBVFhH7ZfNa9RAGIfzZ3jRixeLSKFe/BfEDyqtaLX1W29CRUGx1mrBg1IFQQ8KgqB4EDz0YgWtl968FATxJh4Fd5PsJvuRZHdff7Pv7JLdTDKT7haK9CEsSzKZ95l33pkkFm0xtoV0/C9CzWazXq9XKpVyuVwqlVzXxa/nedVqNQzDVqsl2+UnnxAi1Wo1hLfbOCr4EkRhJm/LQw4hjJ6DcWBopcEN0BL/gyCQ95thJISxcgD8ckhD0L5YLGI2zSdRL4RCKRQKeVXisJbhDGqEUKec+cHBqEycsoSGaMPAKYoi2XsKqUJYTcO1YTB32DJkDBVqoUajgdHIPoYKLw4ZRoVaCLcB2cewgRB2EBkpgUIIW/BmTFYXDBUTl7YRKITypcdxyyUnqOTen7CbyHi99AthYzVPD7QrnlP2nJeffaIcSYVQWpL6hfAMMk+PX3aiwN5xtWkdpNnXNaKieMyagWErnyr9QmhnJOS4XsmhZnHXtaY1Q9YVsibo9juUKvJkNB5EweBl1Bg9Qti1DOcLdYN87Jzt2PAxQYvv204mI2ojA8foEcJmiEbyjnREbsjefaNhTcds+DhGDz6YOmHwyTLqEULla4XaubHH5iPrdMKGj3F69tGnlt4JQsmnW4+QvqIdl6hw4F5kTSU84sc4vfoinLI7U9Z1jxBeXDKEcAV1MzLXsE4kDJLHYXqx6rfqWU4QwiYsY3cwzRDO1nxn+Zs387A+cqthXewEPk/Cj4/LnZNnaXIpmFis2yWnlD5zeiG8b2RlyHWrnlhc0y/rCCkCX6DR+ejRSuX+cmVpxReW7DRJ67+wpO3MjBtMme/72TWEi9S0J58HUugsnXyGHm2qC1GRrUvt88dp7YeHjGZ2JoSSr0c9QtrHalJo4mmAM7hEgW2d6xfiu9JALM2y126M/ULnEkI8ZQZCnD0ZOEaPEIBQVhm1hQ49CcSyh9MUHXkcEzpF1hlhaR2l1e96IZSsjBqjX0hT144bVp23a/6em9H+hXDvXHT9TY1C0b5Rs0fvhGN3o7GFaN9c+Oev2EL5LiVp3yH9QmiknbWgKjZreYRip+HI2Am75/F4SR+XSA+QITsEDfpdSAiB7O0RCIPYIU+mnFeC/pNvsV9/0qd1lZA2SQMCG/Qvg8XgBacQAtokDQJs8FohIyVQC2F72LzPIPzKMCrUQgATN3SntMmKkyoEkFgsTtnZwMBG+9kKsoQA1sJQnNgGH8Sy33Q0QgAPZPQ1SI1jmnC7NjeMXgigxrHuNqDFiUn7JlRiJMQgVYjBw2U4ah98Cc2ggjc+w8R0ySHEQItfmxAyLgf4DIAWspJXhckt1AUVivcnVD1iM1iV0N2YR5eNC20S20I6tpgQ0T9aMGVDfDT/AQAAAABJRU5ErkJggg==",
+        "backendService": {
+          "serviceurl": "http://cloudsandboxes.nl"
+        }
+      }
+    },
+         {
+
+            "name": "[variables('storageAccountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2021-08-01",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "accessTier": "hot",
+                "minimumTlsVersion": "TLS1_2",
+                "supportsHttpsTrafficOnly": true,
+                "allowBlobPublicAccess": false,
+                "allowSharedKeyAccess": true,
+                "allowCrossTenantReplication": true,
+                "defaultToOAuthAuthentication": false,
+                "networkAcls": {
+                    "bypass": "AzureServices",
+                    "defaultAction": "Allow",
+                    "ipRules": []
+                },
+                "encryption": {
+                    "keySource": "Microsoft.Storage",
+                    "services": {
+                        "blob": {
+                            "enabled": true
+                        },
+                        "file": {
+                            "enabled": true
+                        },
+                        "table": {
+                            "enabled": true
+                        },
+                        "queue": {
+                            "enabled": true
+                        }
+                    },
+                    "requireInfrastructureEncryption": false
+                }
+            },
+            "dependsOn": [],
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "StorageV2",
+            "tags": {}
+        },
+        {
+            "name": "[concat(variables('storageAccountName'), '/default')]",
+            "type": "Microsoft.Storage/storageAccounts/blobServices",
+            "apiVersion": "2021-08-01",
+            "properties": {
+                "restorePolicy": {
+                    "enabled": false
+                },
+                "deleteRetentionPolicy": {
+                    "enabled": true,
+                    "days": 7
+                },
+                "containerDeleteRetentionPolicy": {
+                    "enabled": false,
+                    "days": 7
+                },
+                "changeFeed": {
+                    "enabled": false
+                },
+                "isVersioningEnabled": true
+            },
+            "dependsOn": [
+                "[concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]"
+            ]
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+            "apiVersion": "2019-04-01",
+            "name": "[concat(variables('storageAccountName'), '/default/', variables('containerName'))]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts/blobServices', variables('storageAccountName'), 'default')]",
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+            ],
+            "properties": {
+                "publicAccess": "None"
+            }
+        },
+		{
+    "type": "Microsoft.Resources/deploymentScripts",
+    "apiVersion": "2020-10-01",
+    "name": "scrambling",
+    "location": "[resourceGroup().location]",
+    "kind": "AzureCLI",
+    "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts/blobServices/containers', variables('storageAccountName'), 'default', variables('containerName'))]"
+    ],
+    "properties": {
+        "forceUpdateTag": "[parameters('utcValue')]",
+        "AzCliVersion": "2.2.0",
+        "timeout": "PT10M",
+		"environmentVariables": [
+          {
+            "name": "keys",
+            "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-04-01').keys[0].value]"
+          }
+        ],
+        "arguments": "[concat(variables('storageAccountName'), ' ', variables('containerName'))]",
+        "scriptContent": "curl https://trackingexercises.blob.core.windows.net/deploy/iaceasy.bicep > testfile10.txt  ; az storage blob upload --container-name $2 --account-name $1 --account-key $keys --file testfile10.txt --name iac.bicep --output none",
+        "cleanupPreference": "Always",
+        "retentionInterval": "PT1H"
+    }
+}
+  ]
+}
