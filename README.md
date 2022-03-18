@@ -1,14 +1,11 @@
 # Start with our Azure hands-on excercises Library
 > This repo contains a library of hands-on Azure exercises. 
 > Just start them in your own Azure environment, and try to solve them.  
-> When you want to check your solution, we offer for a few exercise a free check.
-> For checking all exercises you need to order the offical playground [here](https://cloudsandboxes.nl/cart).
-> Besides access to all exercises and solutions, you could use our Azure dashboard.   
-> This dashboard provides an user-interface to navigate more easily through your Azure environment 
-> And it keeps track of your score.
-> For company implementations the dashboard could also be integrated with your Teams environment.
+> To get access to all exercises and solutions you need to order the offical playground [here](https://cloudsandboxes.nl/cart).
+> Besides access to all exercises and solutions, we provide an Azure dashboard.   
+> This dashboard provides an user-interface to navigate more easily through your Azure environment, And it keeps track of your score.
 >  
-> Lastly we also provide a feature called cleanup-functionality. This helps you to cleanup all Azure resources which are not in use anymore. This saves you costs and keeps your environment neatly and clear.
+> Lastly we have also included a cleanup-functionality. The learning environment will be cleaned up every night, so your could start fresh every morning. This saves you costs and keeps your environment neatly and clear.
 >
 # Start your own Azure environment
 > You need to have your own Azure tenant and Azure subscription ready. You can order one for free at the Microsoft [website](https://azure.microsoft.com/en-us/free/search/). This results in your own Azure environment, with a 200$ free use in Azure credits. On top of the free use of some of the popular Azure services and the more than 40 services that are always for free.       
@@ -42,7 +39,7 @@
 |<strong>Task:</strong> Two VMs are created. We are unable to setup an rdp session between the two vms (10.1.0.6) -> (10.2.0.6). Could you make the peering between this netwerks possible? |
 |<strong>Difficulty:</strong> <img src="/dashboard-files/1-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Windows, routing, NSG, Vnetpeering, Vnet, subnets, Microsoft Backbone|
-|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FAzure-Excercises%2Fconnect-two-vms.json) &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  <a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fsolutions-azure%2F1502.json' target='_blank'> <img src='/dashboard-files/check-opdracht.png' width="167"></a> |
+|buy now|
 >
 ----
 >
@@ -51,8 +48,7 @@
 |<strong>Task:</strong> Deploy a simple Azure vm, although connecting via SSH/RDP does not work. Could you solve it so we could use SSH/RDP to login? |
 |<strong>Difficulty:</strong> <img src="/dashboard-files/4-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Windows or Linux VM, Vnet, Microsoft Backbone|
-|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FAzure-Excercises%2Flogin-to-AzureVM.json) &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  <a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fsolutions-azure%2F1503.json' target='_blank'> <img src='/dashboard-files/check-opdracht.png' width="167"></a> |
->
+|buy now|>
 
 ----
 >
@@ -61,7 +57,7 @@
 |<strong>Task:</strong> The traffic in a two tier netwerk design should be blocked due to the routetable rule "drop_direct_traffic". Although setting up an rdp session to savevm (10.1.0.12) from the hackedvm is still possible. Could you update the routetable so traffic between the subnets is blocked?  |
 |<strong>Difficulty:</strong> <img src="/dashboard-files/2-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Windows, Route Table, routing, NSG, Vnet, Microsoft Backbone|
-|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FAzure-Excercises%2Fupdate-routetable.json)  &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  <a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fsolutions-azure%2F1505.json' target='_blank'> <img src='/dashboard-files/check-opdracht.png' width="167"></a>|
+|buy now|
 >
 ----
 >
@@ -70,7 +66,7 @@
 |<strong>Task:</strong> A Linux Vm runs in Azure, you can execute a curl request succesfully like *curl -Is https://cloudsandboxes.nl \| head -n 1*. Only after a restart of the VM the curl command doesn't work anymore. It seems like a routing issue. Could you solve this issue for this development team? Restart the VM to experience their problem.  |
 |<strong>Difficulty:</strong> <img src="/dashboard-files/5-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Ubuntu VM, NSG, Vnet, routing table, Microsoft Backbone|
-|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fazure-excercises%2FUnable-to-reboot-vm.json)|
+|buy now|
 >
 ----
 >
@@ -79,7 +75,7 @@
 |<strong>Task:</strong> A Windows VM runs in Azure, only the customer changed the IP address to a static IP address inside the Virtual Machine, thereby breaking the RDP connection. Could you reconfigure the RDP connection? |
 |<strong>Difficulty:</strong> <img src="/dashboard-files/3-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Win Virtual Machine, Public IP address, Network Interfacing, Infra |
-|Under construction|
+|buy now|
 
 >
 ----
@@ -106,7 +102,7 @@
 |<strong>Task:</strong> An development team is hosting a webapplication with 15 microservices. From a cost perspective they could save on their monthly bill. Could you configure the Azure architecture to reduce the bill by 50%?|
 |<strong>Difficulty:</strong> <img src="/dashboard-files/1-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Azure Web Application, Azure service plan, hosting plans, Azure cost management, Cloud FinOps|
-|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FAzure-Excercises%2Fwebapp-finops.json)  &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  <a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fsolutions-azure%2F1506.json' target='_blank'> <img src='/dashboard-files/check-opdracht.png' width="167"></a> |
+|buy now|
 
 ---
 
@@ -121,7 +117,7 @@
 |<strong>Task:</strong> In Azure a SQL server with two databases is present. The costs are higher than budgeted while the performance is lower, could you configure the Azure architecture to optimize costs and performance? |
 |<strong>Difficulty:</strong> <img src="/dashboard-files/2-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Azure SQL database, Azure Elastic Pool, Azure SQL Server, Azure cost management, Cloud FinOps|
-|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FAzure-Excercises%2F1507.json)  &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  <a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fsolutions-azure%2F1507.json' target='_blank'> <img src='/dashboard-files/check-opdracht.png' width="167"></a> |
+|buy now|
 >
 ----
 >
@@ -131,7 +127,7 @@
 |<strong>Task:</strong> In Azure a Data Factory pipeline is retrieving the Bitcoin value. Only the pipeline does not function, could you solve the failing pipeline?  |
 |<strong>Difficulty:</strong> <img src="/dashboard-files/3-star-rating.png" alt="difficulty" width="100" />|
 |<strong>Azure resources:</strong> Azure Data Factory|
-|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FAzure-Excercises%2F1508.json)  &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  <a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fsolutions-azure%2F1508.json' target='_blank'> <img src='/dashboard-files/check-opdracht.png' width="167"></a> |
+|buy now|
 >
 ----
 
