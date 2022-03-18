@@ -39,7 +39,7 @@
 |<strong>Task:</strong> Two VMs are created. We are unable to setup an rdp session between the two vms (10.1.0.6) -> (10.2.0.6). Could you make the peering between this netwerks possible? |
 |<strong>Difficulty:</strong> <img src="/dashboard-files/1-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Windows, routing, NSG, Vnetpeering, Vnet, subnets, Microsoft Backbone|
-|buy now|
+|<a href='https://cloudsandboxes.nl/cart/' target='_blank'> <img src='/dashboard-files/buysolution.png' width="167"></a> |
 >
 ----
 >
@@ -48,7 +48,7 @@
 |<strong>Task:</strong> Deploy a simple Azure vm, although connecting via SSH/RDP does not work. Could you solve it so we could use SSH/RDP to login? |
 |<strong>Difficulty:</strong> <img src="/dashboard-files/4-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Windows or Linux VM, Vnet, Microsoft Backbone|
-|buy now|>
+|<a href='https://cloudsandboxes.nl/cart/' target='_blank'> <img src='/dashboard-files/buysolution.png' width="167"></a>|>
 
 ----
 >
@@ -57,7 +57,7 @@
 |<strong>Task:</strong> The traffic in a two tier netwerk design should be blocked due to the routetable rule "drop_direct_traffic". Although setting up an rdp session to savevm (10.1.0.12) from the hackedvm is still possible. Could you update the routetable so traffic between the subnets is blocked?  |
 |<strong>Difficulty:</strong> <img src="/dashboard-files/2-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Windows, Route Table, routing, NSG, Vnet, Microsoft Backbone|
-|buy now|
+|<a href='https://cloudsandboxes.nl/cart/' target='_blank'> <img src='/dashboard-files/buysolution.png' width="167"></a>|
 >
 ----
 >
@@ -66,7 +66,7 @@
 |<strong>Task:</strong> A Linux Vm runs in Azure, you can execute a curl request succesfully like *curl -Is https://cloudsandboxes.nl \| head -n 1*. Only after a restart of the VM the curl command doesn't work anymore. It seems like a routing issue. Could you solve this issue for this development team? Restart the VM to experience their problem.  |
 |<strong>Difficulty:</strong> <img src="/dashboard-files/5-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Ubuntu VM, NSG, Vnet, routing table, Microsoft Backbone|
-|buy now|
+|<a href='https://cloudsandboxes.nl/cart/' target='_blank'> <img src='/dashboard-files/buysolution.png' width="167"></a>|
 >
 ----
 >
@@ -75,7 +75,7 @@
 |<strong>Task:</strong> A Windows VM runs in Azure, only the customer changed the IP address to a static IP address inside the Virtual Machine, thereby breaking the RDP connection. Could you reconfigure the RDP connection? |
 |<strong>Difficulty:</strong> <img src="/dashboard-files/3-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Win Virtual Machine, Public IP address, Network Interfacing, Infra |
-|buy now|
+|<a href='https://cloudsandboxes.nl/cart/' target='_blank'> <img src='/dashboard-files/buysolution.png' width="167"></a>|
 
 >
 ----
@@ -102,7 +102,7 @@
 |<strong>Task:</strong> An development team is hosting a webapplication with 15 microservices. From a cost perspective they could save on their monthly bill. Could you configure the Azure architecture to reduce the bill by 50%?|
 |<strong>Difficulty:</strong> <img src="/dashboard-files/1-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Azure Web Application, Azure service plan, hosting plans, Azure cost management, Cloud FinOps|
-|buy now|
+|<a href='https://cloudsandboxes.nl/cart/' target='_blank'> <img src='/dashboard-files/buysolution.png' width="167"></a>|
 
 ---
 
@@ -117,7 +117,7 @@
 |<strong>Task:</strong> In Azure a SQL server with two databases is present. The costs are higher than budgeted while the performance is lower, could you configure the Azure architecture to optimize costs and performance? |
 |<strong>Difficulty:</strong> <img src="/dashboard-files/2-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Azure SQL database, Azure Elastic Pool, Azure SQL Server, Azure cost management, Cloud FinOps|
-|buy now|
+|<a href='https://cloudsandboxes.nl/cart/' target='_blank'> <img src='/dashboard-files/buysolution.png' width="167"></a>|
 >
 ----
 >
@@ -127,7 +127,7 @@
 |<strong>Task:</strong> In Azure a Data Factory pipeline is retrieving the Bitcoin value. Only the pipeline does not function, could you solve the failing pipeline?  |
 |<strong>Difficulty:</strong> <img src="/dashboard-files/3-star-rating.png" alt="difficulty" width="100" />|
 |<strong>Azure resources:</strong> Azure Data Factory|
-|buy now|
+|<a href='https://cloudsandboxes.nl/cart/' target='_blank'> <img src='/dashboard-files/buysolution.png' width="167"></a>|
 >
 ----
 
