@@ -1,4 +1,4 @@
-# Start with our Azure hands-on excercises Library
+# Start with our Azure hands-on exercises Library
 > This repo contains a library of hands-on Azure exercises. 
 > Just start them in your own Azure environment, and try to solve them.  
 > To get access to all exercises and solutions you need to order the offical playground [here](https://cloudsandboxes.nl/cart).
@@ -17,7 +17,7 @@
 > The difficulty of the exercises are marked in stars. One star means it will take about 30 min to troubleshoot and solve the exercise. Every star more will take you about 30 min more.   
 >
 
-# Azure Infrastructuur-as-a-Service (IaaS) excercises. 
+# Azure Infrastructuur-as-a-Service (IaaS) exercises. 
 
 > <img align="right" src="https://techcommunity.microsoft.com/t5/image/serverpage/image-id/64174i7A470844233F603A?v=1.0" alt="drawing" width="300"/> Solve these exercises in line with certifications MCSA 98-349, AZ-700, AZ-900, AZ-104, AZ-500, AZ-800, SC-900, SC-200. Resource include Azure Firewall, FrontDoor, Windows, Linux, loadbalancers, application gateways, IP-adresses, netwerking, routers, traffic access, Backup and high-availability design decisions.  
 >
