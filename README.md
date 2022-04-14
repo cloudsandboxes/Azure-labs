@@ -28,7 +28,7 @@
 |<strong>Task:</strong> A webapp is configured in Azure, although in the Azure portal the “Advanced Tools” feature from the Webapp resource is not available.  Could you enable this feature?    |
 |<strong>Difficulty:</strong> <img src="/dashboard-files/2-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Webapp, VNET, NSG, Routing, Microsoft Backbone, KUDU|
-|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fazure-excercises%2F1501.json) &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  <a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fsolutions-azure%2F1501.json' target='_blank'> <img src='/dashboard-files/check-opdracht.png' width="167"></a>|
+|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Ftrackingexercises.blob.core.windows.net%2Fdeploy%2Ftroubleshootwebapp.json) &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  <a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Ftrackingexercises.blob.core.windows.net%2Fsolutions%2Ftroubleshootwebapp.json' target='_blank'> <img src='/dashboard-files/check-opdracht.png' width="167"></a>|
 
 >
 ----
@@ -104,7 +104,7 @@
 |<strong>Task:</strong> somebody accidentally overwrote a blob file with an important secret. They tried to fix it, but only make it worse. Could you restore the file with the correct secret?|
 |<strong>Difficulty:</strong> <img src="/dashboard-files/2-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Blob Storage, disaster recovery strategies|
-|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2FAzure-Excercises%2Frestore-blob-file.json)    &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  <a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fcloudsandboxes%2FAzure-labs%2Fmaster%2Fsolutions-azure%2Frestore-blob-file.json' target='_blank'> <img src='/dashboard-files/check-opdracht.png' width="167"></a> |
+|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Ftrackingexercises.blob.core.windows.net%2Fdeploy%2Fstoragemissing.json)    &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  <a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Ftrackingexercises.blob.core.windows.net%2Fsolutions%2Fstoragemissing.json' target='_blank'> <img src='/dashboard-files/check-opdracht.png' width="167"></a> |
 
 >
 ----
