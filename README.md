@@ -104,7 +104,7 @@
 |<strong>Task:</strong> somebody accidentally overwrote a blob file with an important secret. They tried to fix it, but only make it worse. Could you restore the file with the correct secret?|
 |<strong>Difficulty:</strong> <img src="/dashboard-files/2-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Blob Storage, disaster recovery strategies|
-|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Ftrackingexercises.blob.core.windows.net%2Fdeploy%2Fstoragemissing.json)    &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  <a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Ftrackingexercises.blob.core.windows.net%2Fsolutions%2Fstoragemissing.json' target='_blank'> <img src='/dashboard-files/check-opdracht.png' width="167"></a> |
+|[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Ftrackingexercises.blob.core.windows.net%2Fdeploy%2Fgithubstorage.json)    &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  <a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Ftrackingexercises.blob.core.windows.net%2Fsolutions%2Fstoragemissing.json' target='_blank'> <img src='/dashboard-files/check-opdracht.png' width="167"></a> |
 
 >
 ----
