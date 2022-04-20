@@ -81,11 +81,11 @@
 
 ----
 >
-|1511 Troubleshoot RDP session |
+|1511 Update Azure OS |
 |:---|
-|<strong>Task:</strong> A Windows VM runs in Azure, only the customer changed the IP address to a static IP address inside the Virtual Machine, thereby breaking the RDP connection. Could you reconfigure the RDP connection? |
-|<strong>Difficulty:</strong> <img src="/dashboard-files/3-star-rating.png" alt="difficulty" width="100"/>|
-|<strong>Azure resources:</strong> Win Virtual Machine, Public IP address, Network Interfacing, Infra |
+|<strong>Task:</strong>A VM with OS 2018 R2 is running in Azure. This version of the OS will be out of support in a few months. Could you update the OS version to 2022? |
+|<strong>Difficulty:</strong> <img src="/dashboard-files/5-star-rating.png" alt="difficulty" width="100"/>|
+|<strong>Azure resources:</strong> Win Virtual Machine, OS update, maintainance, Infra |
 |<a href='https://cloudsandboxes.nl/cart/' target='_blank'> <img src='/dashboard-files/buysolution.png' width="167"></a>|
 
 >
