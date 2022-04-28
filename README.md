@@ -83,7 +83,7 @@
 >
 |1511 Update Azure OS |
 |:---|
-|<strong>Task:</strong>A VM with OS 2018 R2 is running in Azure. This version of the OS will be out of support in a few months. Could you update the OS version to 2022? |
+|<strong>Task:</strong> A VM with OS 2018 R2 is running in Azure. This version of the OS will be out of support in a few months. Could you update the OS version to 2022? |
 |<strong>Difficulty:</strong> <img src="/dashboard-files/5-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Win Virtual Machine, OS update, maintainance, Infra |
 |<a href='https://cloudsandboxes.nl/cart/' target='_blank'> <img src='/dashboard-files/buysolution.png' width="167"></a>|
@@ -94,7 +94,7 @@
 >
 |1512 Green-Cloud computing with a reduction in regional CO2 intensity |
 |:---|
-|<strong>Task:</strong>A VM is running in the West-Europe region, where it consumes the locally generated energy. The general energy mix of this region has a high carbon intensity (CO2eq) and thus conflicts with the new corporate sustainability goals. Could you lower the carbon footprint of this VM by moving it to a region with a lower carbon intensity? |
+|<strong>Task:</strong> A VM is running in the West-Europe region, where it consumes the locally generated energy. The general energy mix of this region has a high carbon intensity (CO2eq) and thus conflicts with the new corporate sustainability goals. Could you lower the carbon footprint of this VM by moving it to a region with a lower carbon intensity? |
 |<strong>Difficulty:</strong> <img src="/dashboard-files/3-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Win Virtual Machine, maintainance, Infra, sustainability, CO2 reduction  |
 |<a href='https://cloudsandboxes.nl/cart/' target='_blank'> <img src='/dashboard-files/buysolution.png' width="167"></a>|
