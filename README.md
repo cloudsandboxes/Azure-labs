@@ -25,7 +25,7 @@
 
 |1501 Troubleshoot help |
 |:---|
-|<strong>Task:</strong> A webapp is configured in Azure, although in the Azure portal the “Advanced Tools” feature from the Webapp resource is not available.  Could you enable this feature?    |
+|<strong>Task:</strong> A webapp is configured in Azure, although in the Azure portal the “Advanced Tools” feature from the Webapp resource is not available.  Could you enable this feature to make troubleshooting easier?    |
 |<strong>Difficulty:</strong> <img src="/dashboard-files/2-star-rating.png" alt="difficulty" width="100"/>|
 |<strong>Azure resources:</strong> Webapp, VNET, NSG, Routing, Microsoft Backbone, KUDU|
 |[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Ftrackingexercises.blob.core.windows.net%2Fdeploy%2Ftroubleshootwebapp.json) &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;&nbsp;&nbsp;  <a href='https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Ftrackingexercises.blob.core.windows.net%2Fsolutions%2Ftroubleshootwebapp.json' target='_blank'> <img src='/dashboard-files/check-opdracht.png' width="167"></a>|
