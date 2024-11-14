@@ -1,4 +1,4 @@
-# Start with our Azure hands-on exercises Library
+# Start with our Azure hands-on exercises Library 
 > This repo contains a library of hands-on Azure exercises. 
 > Just start them in your own Azure environment, and try to solve them.  
 > To get access to all exercises and solutions you need to order the offical playground [here](https://cloudsandboxes.nl/cart).
